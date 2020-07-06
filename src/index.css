@@ -1,0 +1,21 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Times New Roman', Times, serif;
+	background-color: black;
+}
+
+header {
+	padding: 50px 15px 0px;
+}
+
+header h1 {
+	color: rgb(202, 202, 9);
+	font-size: 56px;
+	font-weight: 550;
+	text-align: center;
+}
