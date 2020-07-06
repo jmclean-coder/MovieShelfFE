@@ -1,15 +1,21 @@
-import React from 'react';
-// import './App.css';
+import React, { useState } from 'react'
+import Search from './components/Search'
+import axios from 'axios'
+
 
 function App() {
+  
+
   return (
     <div className="App">
-      <header className="App-header">
-        Hi It's Working Now
-        
+      <header>
+        <h1>Movie Library</h1>
+        <main>
+          <Search />
+        </main>
       </header>
     </div>
   );
 }
 
-export default App;
+export default App
