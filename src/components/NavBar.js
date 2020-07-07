@@ -1,14 +1,14 @@
 import React from 'react'
-import { Nav, Navbar, NavDropdown, Form, FormControl, Button } from 'react-bootstrap';
+import { Nav, Navbar, NavDropdown, Form, FormControl, Button, Container } from 'react-bootstrap';
 
 export default class NavBar extends React.Component {
 
     handleChange = (e) => {
-        console.log(e.target.value)
         this.props.changeGenre(e.target.value)
     }
     onShowGenreClick = () => {
-        this.props.fetchMovies()
+        console.log("Filter genre!")
+        // this.props.fetchMovies()
     }
 
     handleClickLibrary = () => {
@@ -21,7 +21,7 @@ export default class NavBar extends React.Component {
 
     handleClickRandomMovie = () => {
         console.log("Give me a random movie!")
-        this.props.addRandomMovie()
+        // this.props.addRandomMovie()
     }
     
     handleClickRandomGenre = () => {
@@ -52,8 +52,8 @@ export default class NavBar extends React.Component {
                                     <option value="drama">Drama</option>
                                 </Form.Control>
                             </Form.Group>
-                            <Button className="ui secondary button" onClick={this.onFindPetsClick}>Filter Genre</Button>
                         </Form>
+                        <Button className="ui secondary button" variant="outline-light" onClick={this.onShowGenreClick}>Filter Genre</Button>
                         <NavDropdown title="Special Features" id="basic-nav-dropdown">
                             <NavDropdown.Item onClick={this.handleClickRandomMovie} value="random">Add Random Movie To My Shelf</NavDropdown.Item>
                             <NavDropdown.Divider />
@@ -63,7 +63,7 @@ export default class NavBar extends React.Component {
                         </Nav>
                         <Form inline>
                             <FormControl type="text" placeholder="Search Library" className="mr-sm-2" onSubmit={this.handleClick}/>
-                            <Button variant="outline-success" >Search</Button>
+                            <Button variant="outline-light" >Search</Button>
                         </Form>
                     </Navbar.Collapse>
                 </Navbar>
