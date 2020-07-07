@@ -1,4 +1,4 @@
-* {
+/* * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
@@ -48,4 +48,4 @@ section {
 
 .search:focus {
 	box-shadow: 4px 4px 7px 5px rgb(10, 43, 94);
-}
+} */
