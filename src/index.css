@@ -19,3 +19,33 @@ header h1 {
 	font-weight: 550;
 	text-align: center;
 }
+main {
+	width: 100%;
+	max-width: 960px;
+	margin: 0 auto;
+}
+
+section {
+	padding: 15px;
+}
+
+.search {
+	display: block;
+	width: 100%;
+	padding: 10px;
+
+	border: outset;
+
+	background-color: #EEE;
+	border-radius: 10px;
+
+	color: black;
+	font-size: 24px;
+	font-weight: 350;
+
+	transition: 0.4s ease-out;
+}
+
+.search:focus {
+	box-shadow: 4px 4px 7px 5px rgb(10, 43, 94);
+}
