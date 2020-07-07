@@ -2,9 +2,18 @@ import React from 'react'
 import { Nav, Navbar, NavDropdown, Form, FormControl, Button } from 'react-bootstrap';
 
 export default class NavBar extends React.Component {
-    handleClick = () => {
-        console.log("Click")
+    handleChange = (e) => {
+        console.log(e.target.value)
+        this.props.changeGenre(e.target.value)
     }
+    onShowGenreClick = () => {
+        this.props.fetchMovies()
+    }
+
+    handleClickRandom = () => {
+        console.log("Give me a random movie!")
+    }
+    
     render () {
         return (
             <div>
@@ -15,20 +24,20 @@ export default class NavBar extends React.Component {
                         <Nav className="mr-auto">
                         <Nav.Link href="#library">Library</Nav.Link>
                         <Nav.Link href="#shelf">My Shelf</Nav.Link>
-                        <Form>
+                        <Form onChange={this.handleChange}>
                             <Form.Group controlId="genreSelect">
-                                <Form.Label>Genre select</Form.Label>
+                                {/* <Form.Label>Genre select</Form.Label> */}
                                 <Form.Control as="select">
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>NavBar
-                                    <option>5</option>
+                                    <option value="all">All</option>
+                                    <option value="action">Action</option>
+                                    <option value="comedy">Comedy</option>
+                                    <option value="drama">Drama</option>
                                 </Form.Control>
                             </Form.Group>
+                            <Button className="ui secondary button" onClick={this.onFindPetsClick}>Filter Genre</Button>
                         </Form>
                         <NavDropdown title="Special Features" id="basic-nav-dropdown">
-                            <NavDropdown.Item href="#action/3.1">Add Random Movie To My Shelf</NavDropdown.Item>
+                            <NavDropdown.Item onClick={this.handleClickRandom} value="random">Add Random Movie To My Shelf</NavDropdown.Item>
                             <NavDropdown.Divider />
                             <NavDropdown.Item href="#action/3.2">Show Me A Random Genre</NavDropdown.Item>
                             <NavDropdown.Item href="#action/3.3">Do Something Really Cool</NavDropdown.Item>
