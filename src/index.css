@@ -21,7 +21,7 @@ header h1 {
 }
 main {
 	width: 100%;
-	max-width: 960px;
+	max-width: 1600px;
 	margin: 0 auto;
 }
 
@@ -43,7 +43,7 @@ section {
 	font-size: 24px;
 	font-weight: 350;
 
-	transition: 0.4s ease-out;
+	transition: 0.2s ease-out;
 }
 
 .search:focus {
