@@ -41,11 +41,18 @@ function App() {
   //   this.setState({filter:newGenre})
   // } 
 
+  // BELOW IS FUNCTION THAT WILL GRAB RANDOM MOVIE FROM DATABASE AND ADD TO USER SHELF
+  // addRandomMovie = () => {
+  //   let totalNumberMovies = this.state.movies.count
+  //   randomMovie = this.state.movies[rand(0..(totalNumberMovies-1))]
+  //   // add randomMovie to user's shelf
+  // }
+
   return (
     <div>
       <div>
         {/* Commented out until this.changeGenre works}
-        {/* <NavBar changeGenre={this.changeGenre}/> */}
+        {/* <NavBar changeGenre={this.changeGenre} fetchMovies={this.fetchMovies} addRandomMovie={this.addRandomMovie}/> */}
         <NavBar />
       </div>
       <div className="App">
