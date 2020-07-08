@@ -29,7 +29,7 @@ export default class NavBar extends React.Component {
     }
     
     handleClickSomethingAwesome = () => {
-        console.log("Give me a random genre!")
+        console.log("Give me something awesome!")
     }
     
     render () {
