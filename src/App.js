@@ -54,10 +54,8 @@ function App() {
     })
   }
 
-<<<<<<< HEAD
   // addToShelf = () => {
     
-=======
   // BELOW IS JUSTIN'S PLACEHOLDER CALL TO POPULATE MOVIES BASED ON GENRE FILTER
   // fetchMovies = () => {
   //   let url = `localhost:3000/movies`
@@ -83,7 +81,6 @@ function App() {
   //   let totalNumberMovies = this.state.movies.count
   //   randomMovie = this.state.movies[rand(0..(totalNumberMovies-1))]
   //   // add randomMovie to user's shelf
->>>>>>> upstream/master
   // }
 
   return (
