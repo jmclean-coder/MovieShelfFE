@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import Search from './components/Search'
 import axios from 'axios'
 import NavBar from './components/NavBar'
-import Filters from './components/Filters'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Results from './components/Results'
 import OpenPop from './components/OpenPop'
@@ -57,38 +56,37 @@ function App() {
   // addToShelf = () => {
     
   // BELOW IS JUSTIN'S PLACEHOLDER CALL TO POPULATE MOVIES BASED ON GENRE FILTER
-  // fetchMovies = () => {
-  //   let url = `localhost:3000/movies`
-  //   fetch (url).then(r=>r.json()).then(j=>{
-  //       if (this.state.filter !== 'all') {
-  //         j.filter(movie => {
-  //           movie.genre === this.state.filter
-  //         })
-  //       } else {
-  //         this.setState({ movies : j })
-  //       }
-  //     }
-  //   )
-  // }
+  let fetchMovies = () => {
+    let url = `localhost:3000/movies`
+    fetch (url).then(r=>r.json()).then(j=>{
+        if (state.filter !== 'all') {
+          j.filter(movie => {
+            return movie.genre === state.filter
+          })
+        } else {
+          setState(prevState => { 
+            return {...prevState,movies : j }})
+        }
+      }
+    )
+  }
 
-  // BELOW IS FUNCTION TO CHANGE GENRE IN STATE FOR FILTERING PURPOSES
-  // changeGenre = (newGenre) => {
-  //   this.setState({filter:newGenre})
-  // } 
+  let changeGenre = (newGenre) => {
+    setState(prevState => {
+      return { ...prevState, filter:newGenre}
+    })
+  } 
 
   // BELOW IS FUNCTION THAT WILL GRAB RANDOM MOVIE FROM DATABASE AND ADD TO USER SHELF
-  // addRandomMovie = () => {
-  //   let totalNumberMovies = this.state.movies.count
-  //   randomMovie = this.state.movies[rand(0..(totalNumberMovies-1))]
+  // let addRandomMovie = () => {
+  //   randomMovie = state.movies[rand(0..(state.movies.count-1))]
   //   // add randomMovie to user's shelf
   // }
 
   return (
     <div>
       <div>
-        {/* Commented out until this.changeGenre works}
-        {/* <NavBar changeGenre={this.changeGenre} fetchMovies={this.fetchMovies} addRandomMovie={this.addRandomMovie}/> */}
-        <NavBar />
+        <NavBar changeGenre={changeGenre} fetchMovies={fetchMovies} />
       </div>
       <div className="App">
       <header>
