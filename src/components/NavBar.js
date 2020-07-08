@@ -1,14 +1,14 @@
 import React from 'react'
-import { Nav, Navbar, NavDropdown, Form, FormControl, Button } from 'react-bootstrap';
+import { Nav, Navbar, NavDropdown, Form, FormControl, Button, Container } from 'react-bootstrap';
 
 export default class NavBar extends React.Component {
 
     handleChange = (e) => {
-        console.log(e.target.value)
         this.props.changeGenre(e.target.value)
     }
     onShowGenreClick = () => {
-        this.props.fetchMovies()
+        console.log("Filter genre!")
+        // this.props.fetchMovies()
     }
 
     handleClickLibrary = () => {
@@ -21,7 +21,7 @@ export default class NavBar extends React.Component {
 
     handleClickRandomMovie = () => {
         console.log("Give me a random movie!")
-        this.props.addRandomMovie()
+        // this.props.addRandomMovie()
     }
     
     handleClickRandomGenre = () => {
@@ -42,7 +42,13 @@ export default class NavBar extends React.Component {
                         <Nav className="mr-auto">
                         <Nav.Link onClick={this.handleClickLibrary}>Library</Nav.Link>
                         <Nav.Link onClick={this.handleClickShelf}>My Shelf</Nav.Link>
-                        <Form onChange={this.handleChange}>
+                        <NavDropdown title="Special Features" id="basic-nav-dropdown">
+                            <NavDropdown.Item onClick={this.handleClickRandomMovie} value="random">Add Random Movie To My Shelf</NavDropdown.Item>
+                            <NavDropdown.Divider />
+                            <NavDropdown.Item onClick={this.handleClickRandomGenre}>Show Me A Random Genre</NavDropdown.Item>
+                            <NavDropdown.Item onClick={this.handleClickSomethingAwesome}>Do Something Really Cool</NavDropdown.Item>
+                        </NavDropdown>
+                        <Form inline onChange={this.handleChange}>
                             <Form.Group controlId="genreSelect">
                                 {/* <Form.Label>Genre select</Form.Label> */}
                                 <Form.Control as="select">
@@ -52,18 +58,12 @@ export default class NavBar extends React.Component {
                                     <option value="drama">Drama</option>
                                 </Form.Control>
                             </Form.Group>
-                            <Button className="ui secondary button" onClick={this.onFindPetsClick}>Filter Genre</Button>
+                        <Button variant="outline-light" onClick={this.onShowGenreClick}>Filter Genre</Button>
                         </Form>
-                        <NavDropdown title="Special Features" id="basic-nav-dropdown">
-                            <NavDropdown.Item onClick={this.handleClickRandomMovie} value="random">Add Random Movie To My Shelf</NavDropdown.Item>
-                            <NavDropdown.Divider />
-                            <NavDropdown.Item onClick={this.handleClickRandomGenre}>Show Me A Random Genre</NavDropdown.Item>
-                            <NavDropdown.Item onClick={this.handleClickSomethingAwesome}>Do Something Really Cool</NavDropdown.Item>
-                        </NavDropdown>
                         </Nav>
                         <Form inline>
                             <FormControl type="text" placeholder="Search Library" className="mr-sm-2" onSubmit={this.handleClick}/>
-                            <Button variant="outline-success" >Search</Button>
+                            <Button variant="outline-light" >Search</Button>
                         </Form>
                     </Navbar.Collapse>
                 </Navbar>
