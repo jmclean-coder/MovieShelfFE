@@ -1,60 +1,102 @@
-import React, { useState } from 'react'
+import React, { Component } from 'react'
 import Search from './components/Search'
 import axios from 'axios'
 import NavBar from './components/NavBar'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Results from './components/Results'
-import OpenPop from './components/OpenPop'
+// import Shelf from './components/Shelf'
+// import OpenPop from './components/OpenPop'
+let API = 'http://www.omdbapi.com/?apikey=e742e527&'
 
 
-function App() {
-  let API = 'http://www.omdbapi.com/?apikey=e742e527&'
-  let [state, setState] = useState({
-    input: "",
-    results: [],
-    selected: {},
-    filter: 'all'
-  })
-  let search = (e) => {
+class App extends Component {
+  
+  constructor(props){
+    super(props)
+  
+    this.state = {
+      input: "",
+      results: [],
+      selected: {},
+      // myShelf: [],
+      filter: 'all'
+    }
+  }
+  
+  search = (e) => {
     if (e.key === "Enter"){
-      axios(API + "&s=" + state.input).then(({data}) => {
+      axios(API + "&s=" + this.state.input).then(({data}) => {
         // console.log(data)
-        let results = data.Search
-
-        setState(prevState => {
+         let results = this.state.results 
+         results = data.Search
+        // console.log(results)
+        this.setState(prevState => {
           return {...prevState, results:results}
         })
       })
     }
   }
-  let handleInput = (e) => {
+  handleInput = (e) => {
     let input = e.target.value
-    setState(prevState => {
+    this.setState(prevState => {
       return {...prevState, input:input}
     })
-    // console.log(state.input)
+    // console.log(this.state.input)
   }
+  render() {
+    
 
-  let popOut = id => {
-    axios(API + "&i=" + id).then(({ data }) => {
-      let result = data;
-
-      // console.log(result);
-
-      setState(prevState => {
-        return { ...prevState, selected: result }
-      });
-    });
+    return (
+      <div className="App">
+         <div>
+        {/* Commented out until this.changeGenre works}
+        {/* <NavBar changeGenre={this.changeGenre} fetchMovies={this.fetchMovies} addRandomMovie={this.addRandomMovie}/> */}
+        <NavBar changeGenre={changeGenre} fetchMovies={fetchMovies} />
+      </div>
+      <header>
+        <h1>Movie Library</h1>
+        </header>
+        <main>
+          <Search handleInput={this.handleInput} search={this.search}/>
+          <Results results={this.state.results}  />
+       
+        </main>
+      </div>
+    )
   }
+}
 
-  let closePop = () => {
-    setState(prevState => {
-      return {...prevState , selected: {} }
-    })
-  }
+export default App
+
+
+
+
+  // let popOut = id => {
+  //   axios(API + "&i=" + id).then(({ data }) => {
+  //     let result = data;
+
+  //     // console.log(result);
+
+  //     setState(prevState => {
+  //       return { ...prevState, selected: result }
+  //     });
+  //   });
+  // }
+
+  // let closePop = () => {
+  //   setState(prevState => {
+  //     return {...prevState , selected: {} }
+  //   })
+  // }
+
 
   // addToShelf = () => {
     
+
+
+  // addToShelf = () => {
+    
+
   // BELOW IS JUSTIN'S PLACEHOLDER CALL TO POPULATE MOVIES BASED ON GENRE FILTER
   let fetchMovies = () => {
     let url = `localhost:3000/movies`
@@ -81,25 +123,15 @@ function App() {
   // let addRandomMovie = () => {
   //   randomMovie = state.movies[rand(0..(state.movies.count-1))]
   //   // add randomMovie to user's shelf
+
+
   // }
 
-  return (
-    <div>
-      <div>
-        <NavBar changeGenre={changeGenre} fetchMovies={fetchMovies} />
-      </div>
-      <div className="App">
-      <header>
-        <h1>Movie Library</h1>
-        </header>
-        <main>
-          <Search handleInput={handleInput} search={search}/>
-          <Results results={state.results} popOut={popOut}/>
-          {(typeof state.selected.Title != "undefined") ? <OpenPop selected={state.selected} closePop={closePop} /> : false}
-        </main>
-      </div>
-    </div>
-  );
-}
+  // handleClick = () => {
+  //   console.log('we clicked :)')
+  // }
 
-export default App
+  // }
+
+
+

@@ -1,14 +1,17 @@
-import React from 'react'
+import React, { Component } from 'react'
 import Result from './Result'
 
-function Results({results, popOut}) {
-    return (
+class Results extends Component {
+    render() {
+        console.log(this.props.results)
+        return (
             <section className="results">
-                {results.map(result => (
-                    <Result result={result} key={result.imdbID} popOut={popOut} />
+                {this.props.results.map(result => (
+                    <Result result={result} key={result.imdbID} />
                 ))}
             </section>
-    )
+        )
+    }
 }
 
 export default Results
