@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import Search from './components/Search'
 import axios from 'axios'
 import NavBar from './components/NavBar'
-import Filters from './components/Filters'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Results from './components/Results'
 import OpenPop from './components/OpenPop'
@@ -72,7 +71,6 @@ function App() {
     )
   }
 
-  // BELOW IS FUNCTION TO CHANGE GENRE IN STATE FOR FILTERING PURPOSES
   let changeGenre = (newGenre) => {
     setState(prevState => {
       return { ...prevState, filter:newGenre}

@@ -42,7 +42,13 @@ export default class NavBar extends React.Component {
                         <Nav className="mr-auto">
                         <Nav.Link onClick={this.handleClickLibrary}>Library</Nav.Link>
                         <Nav.Link onClick={this.handleClickShelf}>My Shelf</Nav.Link>
-                        <Form onChange={this.handleChange}>
+                        <NavDropdown title="Special Features" id="basic-nav-dropdown">
+                            <NavDropdown.Item onClick={this.handleClickRandomMovie} value="random">Add Random Movie To My Shelf</NavDropdown.Item>
+                            <NavDropdown.Divider />
+                            <NavDropdown.Item onClick={this.handleClickRandomGenre}>Show Me A Random Genre</NavDropdown.Item>
+                            <NavDropdown.Item onClick={this.handleClickSomethingAwesome}>Do Something Really Cool</NavDropdown.Item>
+                        </NavDropdown>
+                        <Form inline onChange={this.handleChange}>
                             <Form.Group controlId="genreSelect">
                                 {/* <Form.Label>Genre select</Form.Label> */}
                                 <Form.Control as="select">
@@ -52,14 +58,8 @@ export default class NavBar extends React.Component {
                                     <option value="drama">Drama</option>
                                 </Form.Control>
                             </Form.Group>
+                        <Button variant="outline-light" onClick={this.onShowGenreClick}>Filter Genre</Button>
                         </Form>
-                        <Button className="ui secondary button" variant="outline-light" onClick={this.onShowGenreClick}>Filter Genre</Button>
-                        <NavDropdown title="Special Features" id="basic-nav-dropdown">
-                            <NavDropdown.Item onClick={this.handleClickRandomMovie} value="random">Add Random Movie To My Shelf</NavDropdown.Item>
-                            <NavDropdown.Divider />
-                            <NavDropdown.Item onClick={this.handleClickRandomGenre}>Show Me A Random Genre</NavDropdown.Item>
-                            <NavDropdown.Item onClick={this.handleClickSomethingAwesome}>Do Something Really Cool</NavDropdown.Item>
-                        </NavDropdown>
                         </Nav>
                         <Form inline>
                             <FormControl type="text" placeholder="Search Library" className="mr-sm-2" onSubmit={this.handleClick}/>
