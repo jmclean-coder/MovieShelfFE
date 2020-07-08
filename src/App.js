@@ -58,14 +58,14 @@ function App() {
   // BELOW IS JUSTIN'S PLACEHOLDER CALL TO POPULATE MOVIES BASED ON GENRE FILTER
   let fetchMovies = () => {
     let url = `localhost:3000/movies`
-    fetch (url).then(r=>r.json()).then(j=>{
+    fetch (url).then(r=>r.json()).then(json=>{
         if (state.filter !== 'all') {
-          j.filter(movie => {
+          json.filter(movie => {
             return movie.genre === state.filter
           })
         } else {
           setState(prevState => { 
-            return {...prevState,movies : j }})
+            return {...prevState,movies : json }})
         }
       }
     )
