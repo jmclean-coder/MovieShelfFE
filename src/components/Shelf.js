@@ -4,23 +4,17 @@ import MovieCard from './MovieCard'
 
 class Shelf extends Component {
     render() {
+        let rowCount = 1
         return (
             <div>
                 <h1>My Movies!</h1>
-<Container>
-        <Row> 
-        {this.props.myShelf.map(movie => (
-                    <Col><MovieCard movie={movie} deleteFromShelf={this.props.deleteFromShelf}/></Col>
-                ))}
-        <Col></Col>
-    <Col></Col>
-  </Row>
-  <Row>
-    <Col></Col>
-    <Col></Col>
-    <Col></Col>
-  </Row>
-</Container>
+                <Container>
+                <Row> 
+                    {this.props.myShelf.map(movie => (
+                        <Col md={3}><MovieCard movie={movie} deleteFromShelf={this.props.deleteFromShelf}/></Col>
+                    ))}
+                </Row>
+            </Container>
             </div>
         )
     }
