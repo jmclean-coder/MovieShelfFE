@@ -5,7 +5,7 @@ class Result extends Component {
         this.props.addToShelf(this.props.result)
     }
     render() {
-        console.log(this.props.result)
+        // console.log(this.props.result)
         return (
             <div className="result">
             <h2>{this.props.result.Title} {this.props.result.Year}</h2>
