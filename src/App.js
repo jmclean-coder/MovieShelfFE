@@ -4,6 +4,9 @@ import axios from 'axios'
 import NavBar from './components/NavBar'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Results from './components/Results'
+import Shelf from './components/Shelf'
+import Result from './components/Result'
+import MovieCard from './components/MovieCard'
 // import Shelf from './components/Shelf'
 // import OpenPop from './components/OpenPop'
 let API = 'http://www.omdbapi.com/?apikey=e742e527&'
@@ -18,10 +21,30 @@ class App extends Component {
       input: "",
       results: [],
       selected: {},
-      // myShelf: [],
+      myShelf: [],
       filter: 'all'
     }
   }
+
+  addToShelf = (movie) => {
+    if(!this.state.myShelf.includes(movie)){
+      return this.setState({
+        myShelf: [...this.state.myShelf, movie]
+      })
+    }
+  }
+
+  deleteFromShelf = (imdbID) => {
+    let temp = []
+    this.state.myShelf.map(movie => {if(movie.imdbID !== imdbID){
+    temp.push(movie)}
+    return this.setState({
+      myShelf: temp
+    })
+    })
+  }
+
+  
   
   search = (e) => {
     if (e.key === "Enter"){
@@ -51,15 +74,21 @@ class App extends Component {
          <div>
         {/* Commented out until this.changeGenre works}
         {/* <NavBar changeGenre={this.changeGenre} fetchMovies={this.fetchMovies} addRandomMovie={this.addRandomMovie}/> */}
-        <NavBar changeGenre={changeGenre} fetchMovies={fetchMovies} />
+        {/* <NavBar changeGenre={changeGenre} fetchMovies={fetchMovies} /> */}
       </div>
       <header>
         <h1>Movie Library</h1>
         </header>
         <main>
+          
           <Search handleInput={this.handleInput} search={this.search}/>
-          <Results results={this.state.results}  />
-       
+          {/* <section className="results">
+                {this.state.myShelf.map(movie => (
+                    <MovieCard movie={movie}/>
+                ))}
+            </section> */}
+          <Results results={this.state.results} addToShelf={this.addToShelf}  />
+        <Shelf myShelf={this.state.myShelf} deleteFromShelf={this.deleteFromShelf}/>
         </main>
       </div>
     )
@@ -98,26 +127,26 @@ export default App
     
 
   // BELOW IS JUSTIN'S PLACEHOLDER CALL TO POPULATE MOVIES BASED ON GENRE FILTER
-  let fetchMovies = () => {
-    let url = `localhost:3000/movies`
-    fetch (url).then(r=>r.json()).then(j=>{
-        if (state.filter !== 'all') {
-          j.filter(movie => {
-            return movie.genre === state.filter
-          })
-        } else {
-          setState(prevState => { 
-            return {...prevState,movies : j }})
-        }
-      }
-    )
-  }
+  // let fetchMovies = () => {
+  //   let url = `localhost:3000/movies`
+  //   fetch (url).then(r=>r.json()).then(j=>{
+  //       if (state.filter !== 'all') {
+  //         j.filter(movie => {
+  //           return movie.genre === state.filter
+  //         })
+  //       } else {
+  //         setState(prevState => { 
+  //           return {...prevState,movies : j }})
+  //       }
+  //     }
+  //   )
+  // }
 
-  let changeGenre = (newGenre) => {
-    setState(prevState => {
-      return { ...prevState, filter:newGenre}
-    })
-  } 
+  // let changeGenre = (newGenre) => {
+  //   setState(prevState => {
+  //     return { ...prevState, filter:newGenre}
+  //   })
+  // } 
 
   // BELOW IS FUNCTION THAT WILL GRAB RANDOM MOVIE FROM DATABASE AND ADD TO USER SHELF
   // let addRandomMovie = () => {
