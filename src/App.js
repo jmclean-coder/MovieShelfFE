@@ -10,14 +10,14 @@ import MovieCard from './components/MovieCard'
 // import Shelf from './components/Shelf'
 // import OpenPop from './components/OpenPop'
 let API = 'http://www.omdbapi.com/?apikey=e742e527&'
-let localAPI = 'http://localhost:3000/movies'
+let localAPI = 'http://localhost:3000/'
 
 
 class App extends Component {
   
   constructor(props){
     super(props)
-  
+    
     this.state = {
       input: "",
       results: [],
@@ -27,12 +27,47 @@ class App extends Component {
     }
   }
 
+  fetchMovies = () => {
+    fetch (`${localAPI}movies`).then(r=>r.json()).then(j=>{
+        if (this.state.filter !== 'all') {
+          j.filter(movie => {
+            // use .includes for multiple genres
+            return movie.genre === this.state.filter
+          })
+        } else {
+          this.setState({ movies : j })
+        }
+      }
+    )
+  }
+
   addToShelf = (movie) => {
     if(!this.state.myShelf.includes(movie)){
-      return this.setState({
+      this.setState({
         myShelf: [...this.state.myShelf, movie]
       })
     }
+    this.postToMovies(movie)
+  }
+  
+  postToMovies = (movie) => {
+    console.log(movie)
+    fetch(`${localAPI}movies`,{
+      method: "POST",
+      headers: {
+        "Content-Type" : "application/json",
+        Accept : "application/json",
+        body: JSON.stringify({
+          "title": movie.Title,
+          "year": movie.Year,
+          "runtime": "72 min",
+          "poster": movie.Poster,
+          "genre": "Animation, Action, Adventure, Sci-Fi",
+          "imdb_id": movie.imdbID
+        })
+      }
+    })
+    .then(r=>r.json()).then(d=>console.log(d))
   }
 
   deleteFromShelf = (imdbID) => {
@@ -45,17 +80,20 @@ class App extends Component {
     })
   }
 
-  
-  
-  componentDidMount = () => {
-    this.handleFetch()
+
+  postToMovieShelves = () => {
+    console.log("wow")
   }
   
-  handleFetch = () => {
-    fetch(localAPI).then(res=>res.json()).then(data=>{
-      console.log(data)
-    })
-  }
+  // componentDidMount = () => {
+  //   this.handleFetch()
+  // }
+  
+  // handleFetch = () => {
+  //   fetch(`${localAPI}movies`).then(res=>res.json()).then(data=>{
+  //     console.log(data)
+  //   })
+  // }
 
   search = (e) => {
     if (e.key === "Enter"){
@@ -70,7 +108,7 @@ class App extends Component {
       })
     }
   }
-    handleInput = (e) => {
+  handleInput = (e) => {
       let input = e.target.value
       this.setState(prevState => {
         return {...prevState, input:input}
@@ -86,12 +124,7 @@ class App extends Component {
     return (
       <div className="App">
          <div>
-        {/* Commented out until this.changeGenre works}
-        {/* <NavBar changeGenre={this.changeGenre} fetchMovies={this.fetchMovies} addRandomMovie={this.addRandomMovie}/> */}
-
-        {/* <NavBar changeGenre={changeGenre} fetchMovies={fetchMovies} /> */}
-=======
-        <NavBar changeGenre={this.changeGenre} fetchMovies={fetchMovies} />
+        {/* <NavBar changeGenre={this.changeGenre} fetchMovies={this.fetchMovies} /> */}
 
       </div>
       <header>
@@ -167,19 +200,6 @@ export default App
   //   })
   // } 
 
-  fetchMovies = () => {
-    fetch (localAPI).then(r=>r.json()).then(j=>{
-        if (this.state.filter !== 'all') {
-          j.filter(movie => {
-            // use .includes for multiple genres
-            return movie.genre === this.state.filter
-          })
-        } else {
-          this.setState({ movies : j })
-        }
-      }
-    )
-  }
 
 
 
