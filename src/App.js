@@ -27,12 +27,22 @@ class App extends Component {
     }
   }
 
+  componentDidMount = () => {
+    this.handleFetch()
+  }
+  
+  handleFetch = () => {
+    fetch(`${localAPI}shelves/1`).then(res=>res.json()).then(data=>{
+      this.setState({myShelf: data.movies})
+    })
+  }
+
   fetchMovies = () => {
     fetch (`${localAPI}movies`).then(r=>r.json()).then(j=>{
-        if (this.state.filter !== 'all') {
-          j.filter(movie => {
-            // use .includes for multiple genres
-            return movie.genre === this.state.filter
+      if (this.state.filter !== 'all') {
+        j.filter(movie => {
+          // use .includes for multiple genres
+          return movie.genre === this.state.filter
           })
         } else {
           this.setState({ movies : j })
@@ -57,17 +67,21 @@ class App extends Component {
       headers: {
         "Content-Type" : "application/json",
         Accept : "application/json",
+        },
         body: JSON.stringify({
-          "title": movie.Title,
-          "year": movie.Year,
-          "runtime": "72 min",
-          "poster": movie.Poster,
-          "genre": "Animation, Action, Adventure, Sci-Fi",
-          "imdb_id": movie.imdbID
+          movie : {
+            title: movie.Title,
+            year: movie.Year,
+            runtime: "72 min",
+            poster: movie.Poster,
+            genre: "Animation, Action, Adventure, Sci-Fi",
+            imdb_id: movie.imdbID
+          }
         })
       }
-    })
+    )
     .then(r=>r.json()).then(d=>console.log(d))
+    this.handleFetch()
   }
 
   deleteFromShelf = (imdbID) => {
@@ -80,20 +94,7 @@ class App extends Component {
     })
   }
 
-
-  postToMovieShelves = () => {
-    console.log("wow")
-  }
   
-  // componentDidMount = () => {
-  //   this.handleFetch()
-  // }
-  
-  // handleFetch = () => {
-  //   fetch(`${localAPI}movies`).then(res=>res.json()).then(data=>{
-  //     console.log(data)
-  //   })
-  // }
 
   search = (e) => {
     if (e.key === "Enter"){
