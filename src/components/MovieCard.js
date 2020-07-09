@@ -8,11 +8,11 @@ class MovieCard extends Component {
     render() {
         return (
             <Fragment>
-            <div className="movie">
-            <h2>{this.props.movie.title} {this.props.movie.year}</h2>
-            <img height="200" src={this.props.movie.poster} alt="Image Not Found"/>
-            <button onClick={this.handleClick}>Delete</button>
-            </div>
+                <div className="movie">
+                    <h4>{this.props.movie.title} {this.props.movie.year}</h4>
+                    <img height="300" src={this.props.movie.poster} alt="Image Not Found"/>
+                    <button onClick={this.handleClick}>Delete</button>
+                </div>
             </Fragment>
         )
     }
