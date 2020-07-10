@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import Result from './Result'
-import { Container, Row, Col } from 'react-bootstrap';
+import CardGroup from 'react-bootstrap/CardGroup'
+import Container from 'react-bootstrap/Container'
+
 
 
 class Results extends Component {
@@ -9,11 +11,11 @@ class Results extends Component {
         return (
             <section className="results">
                 <Container>
-                    <Row>
-                        {this.props.results.map(result => (
-                            <Result md={3} result={result} key={result.imdbID} addToShelf={this.props.addToShelf} />
-                        ))}
-                    </Row>
+                <CardGroup>
+                {this.props.results.map(result => (
+                    <Result result={result} key={result.imdbID} addToShelf={this.props.addToShelf} />
+                ))}
+                </CardGroup>
                 </Container>
             </section>
         )

@@ -33,7 +33,7 @@ class App extends Component {
   
   handleFetch = () => {
     fetch(`${localAPI}shelves/1`).then(res=>res.json()).then(data=>{
-      this.setState({myShelf: data.movies})
+      this.setState({myShelf: data.shelf.movies})
     })
   }
 
@@ -129,7 +129,7 @@ class App extends Component {
 
       </div>
       <header>
-        <h1>Movie Library</h1>
+        <h1 className="text-center">Movie Library</h1>
         </header>
         <main>
           
