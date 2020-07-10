@@ -1,12 +1,8 @@
 import React, { Component } from 'react'
-import Search from './components/Search'
 import axios from 'axios'
 import NavBar from './components/NavBar'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Results from './components/Results'
 import Shelf from './components/Shelf'
-import Result from './components/Result'
-import MovieCard from './components/MovieCard'
 import {BrowserRouter as Router, Route} from 'react-router-dom'
 import Library from './components/Library';
 import Home from './components/Home';
@@ -55,11 +51,12 @@ class App extends Component {
   }
 
   addToShelf = (movie) => {
+    console.log("HI")
     let newMovie = [...this.state.myShelf, movie]
     this.setState({
       myShelf: newMovie
     })
-    this.postToMovies(movie)
+    // this.postToMovies(movie)
     
   }
   
@@ -75,16 +72,18 @@ class App extends Component {
           movie : {
             title: movie.Title,
             year: movie.Year,
-            runtime: "72 min",
             poster: movie.Poster,
             genre: "Animation, Action, Adventure, Sci-Fi",
             imdb_id: movie.imdbID
           }
         })
       }
+   
     )
-    .then(r=>r.json()).then(d=>console.log(d))
-    this.handleFetch()
+    .then(r=>r.json()).then(d=> this.addToShelf(d.movie))
+      // .then()
+    // this.handleFetch()
+    // this.addToShelf(movie)
   }
 
   deleteFromShelf = (id) => {
@@ -154,7 +153,7 @@ class App extends Component {
         <div>
       <NavBar />
       <Route exact path="/" component={Home}/>
-      <Route exact path="/library" render={ routerProps => <Library {...routerProps} handleInput={this.handleInput} search={this.search} results={this.state.results} addToShelf={this.addToShelf}/>}/>
+      <Route exact path="/library" render={ routerProps => <Library {...routerProps} handleInput={this.handleInput} search={this.search} results={this.state.results} addToShelf={this.addToShelf} postToMovies={this.postToMovies}/>} />
       <Route exact path="/shelf" render={ routerProps => <Shelf {...routerProps} myShelf={this.state.myShelf} deleteFromShelf={this.deleteFromShelf}/>}/>
         </div>
       </Router>

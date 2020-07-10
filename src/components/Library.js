@@ -22,7 +22,7 @@ class Library extends React.Component {
                         <MovieCard movie={movie}/>
                     ))}
                 </section> */}
-              <Results results={this.props.results} addToShelf={this.props.addToShelf}  />
+              <Results results={this.props.results} addToShelf={this.props.addToShelf} postToMovies={this.props.postToMovies} />
             </main>
           </div>
         )

@@ -13,7 +13,7 @@ class Results extends Component {
                 <Container>
                 <CardGroup>
                 {this.props.results.map(result => (
-                    <Result result={result} key={result.imdbID} addToShelf={this.props.addToShelf} />
+                    <Result result={result} key={result.imdbID} addToShelf={this.props.addToShelf} postToMovies={this.props.postToMovies}/>
                 ))}
                 </CardGroup>
                 </Container>

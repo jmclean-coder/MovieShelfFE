@@ -6,7 +6,8 @@ import Card from 'react-bootstrap/Card'
 
 class Result extends Component {
     handleClick = () => {
-        this.props.addToShelf(this.props.result)
+        // this.props.addToShelf(this.props.result)
+        this.props.postToMovies(this.props.result)
     }
     render() {
         // console.log(this.props.result)
