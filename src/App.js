@@ -7,6 +7,9 @@ import Results from './components/Results'
 import Shelf from './components/Shelf'
 import Result from './components/Result'
 import MovieCard from './components/MovieCard'
+import {BrowserRouter as Router, Route} from 'react-router-dom'
+import Library from './components/Library';
+import Home from './components/Home';
 // import Shelf from './components/Shelf'
 // import OpenPop from './components/OpenPop'
 let API = 'http://www.omdbapi.com/?apikey=e742e527&'
@@ -33,7 +36,7 @@ class App extends Component {
   
   handleFetch = () => {
     fetch(`${localAPI}shelves/1`).then(res=>res.json()).then(data=>{
-      this.setState({myShelf: data.movies})
+      this.setState({myShelf: data.shelf.movies})
     })
   }
 
@@ -85,6 +88,7 @@ class App extends Component {
   }
 
   deleteFromShelf = (imdbID) => {
+    console.log("hi")
     let temp = []
     this.state.myShelf.map(movie => {if(movie.imdbID !== imdbID){
     temp.push(movie)}
@@ -124,24 +128,15 @@ class App extends Component {
 
     return (
       <div className="App">
-         <div>
-        {/* <NavBar changeGenre={this.changeGenre} fetchMovies={this.fetchMovies} /> */}
-
-      </div>
-      <header>
-        <h1>Movie Library</h1>
-        </header>
-        <main>
-          
-          <Search handleInput={this.handleInput} search={this.search}/>
-          {/* <section className="results">
-                {this.state.myShelf.map(movie => (
-                    <MovieCard movie={movie}/>
-                ))}
-            </section> */}
-          <Results results={this.state.results} addToShelf={this.addToShelf}  />
-        <Shelf myShelf={this.state.myShelf} deleteFromShelf={this.deleteFromShelf}/>
-        </main>
+      
+      <Router>
+        <div>
+      <NavBar />
+      <Route exact path="/" component={Home}/>
+      <Route exact path="/library" render={ routerProps => <Library {...routerProps} handleInput={this.handleInput} search={this.search} results={this.state.results} addToShelf={this.addToShelf}/>}/>
+      <Route exact path="/shelf" render={ routerProps => <Shelf {...routerProps} myShelf={this.state.myShelf} deleteFromShelf={this.deleteFromShelf}/>}/>
+        </div>
+      </Router>
       </div>
     )
   }
