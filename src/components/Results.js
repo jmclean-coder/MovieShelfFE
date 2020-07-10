@@ -4,6 +4,7 @@ import CardGroup from 'react-bootstrap/CardGroup'
 import Container from 'react-bootstrap/Container'
 
 
+
 class Results extends Component {
     render() {
         // console.log(this.props.results)
