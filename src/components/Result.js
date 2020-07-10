@@ -1,6 +1,8 @@
+
 import React, { Component } from 'react'
 import { Button, Container } from 'react-bootstrap'
 import Card from 'react-bootstrap/Card'
+
 
 class Result extends Component {
     handleClick = () => {
