@@ -1,6 +1,14 @@
 import React from 'react'
-import { Nav, Navbar, NavDropdown, Form, FormControl, Button, Container } from 'react-bootstrap';
-import { NavLink } from "react-router-dom";
+import { Nav, Navbar, NavDropdown, Form, FormControl, Button} from 'react-bootstrap';
+import {NavLink} from 'react-router-dom'
+
+const link = {
+    width: '100px',
+    padding: '12px',
+    margin: '0 6px 6px',
+    textDecoration: 'none',
+    color: 'white',
+  }
 
 export default class NavBar extends React.Component {
 
@@ -36,13 +44,13 @@ export default class NavBar extends React.Component {
     render () {
         return (
             <div>
-                <Navbar bg="primary" variant="dark" expand="md">
-                <Navbar.Brand href="#home">MovieShelf™</Navbar.Brand>
+                <Navbar  fixed="top" bg="primary" variant="dark" expand="md">
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="mr-auto">
-                        <Nav.Link to="/" exact onClick={this.handleClickLibrary}>Library</Nav.Link>
-                        <Nav.Link onClick={this.handleClickShelf}>My Shelf</Nav.Link>
+                        <NavLink to='/' style={link}>Home</NavLink>
+                        <NavLink to='/shelf' style={link}>My Shelf</NavLink>
+                        <NavLink to='/library' style={link}>Library</NavLink>
                         <NavDropdown title="Special Features" id="basic-nav-dropdown">
                             <NavDropdown.Item onClick={this.handleClickRandomMovie} value="random">Add Random Movie To My Shelf</NavDropdown.Item>
                             <NavDropdown.Divider />
@@ -67,6 +75,7 @@ export default class NavBar extends React.Component {
                             <Button variant="outline-light" >Search</Button>
                         </Form>
                     </Navbar.Collapse>
+                <Navbar.Brand >MovieShelf™</Navbar.Brand>
                 </Navbar>
             </div>
         )

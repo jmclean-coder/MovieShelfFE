@@ -7,13 +7,12 @@ import Container from 'react-bootstrap/Container'
 
 class Results extends Component {
     render() {
-        // console.log(this.props.results)
         return (
             <section className="results">
                 <Container>
                 <CardGroup>
                 {this.props.results.map(result => (
-                    <Result result={result} key={result.imdbID} addToShelf={this.props.addToShelf} />
+                    <Result result={result} key={result.imdbID} addToShelf={this.props.addToShelf} postToMovies={this.props.postToMovies}/>
                 ))}
                 </CardGroup>
                 </Container>

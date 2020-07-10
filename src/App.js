@@ -1,16 +1,16 @@
 import React, { Component } from 'react'
-import Search from './components/Search'
 import axios from 'axios'
 import NavBar from './components/NavBar'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Results from './components/Results'
 import Shelf from './components/Shelf'
 import Result from './components/Result'
 import MovieCard from './components/MovieCard'
+import {BrowserRouter as Router, Route} from 'react-router-dom'
+import Library from './components/Library';
+import Home from './components/Home';
 
-// import Shelf from './components/Shelf'
-// import OpenPop from './components/OpenPop'
 let API = `http://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&`
+
 let localAPI = 'http://localhost:3000/'
 
 
@@ -24,7 +24,7 @@ class App extends Component {
       results: [],
       selected: {},
       myShelf: [],
-      filter: 'all'
+      filter: 'all',
     }
   }
 
@@ -53,12 +53,13 @@ class App extends Component {
   }
 
   addToShelf = (movie) => {
-    if(!this.state.myShelf.includes(movie)){
-      this.setState({
-        myShelf: [...this.state.myShelf, movie]
-      })
-    }
-    this.postToMovies(movie)
+    console.log("HI")
+    let newMovie = [...this.state.myShelf, movie]
+    this.setState({
+      myShelf: newMovie
+    })
+    // this.postToMovies(movie)
+    
   }
   
   postToMovies = (movie) => {
@@ -73,27 +74,54 @@ class App extends Component {
           movie : {
             title: movie.Title,
             year: movie.Year,
-            runtime: "72 min",
             poster: movie.Poster,
             genre: "Animation, Action, Adventure, Sci-Fi",
             imdb_id: movie.imdbID
           }
         })
       }
+   
     )
-    .then(r=>r.json()).then(d=>console.log(d))
-    this.handleFetch()
+    .then(r=>r.json()).then(d=> this.addToShelf(d.movie))
+      // .then()
+    // this.handleFetch()
+    // this.addToShelf(movie)
   }
 
-  deleteFromShelf = (imdbID) => {
-    let temp = []
-    this.state.myShelf.map(movie => {if(movie.imdbID !== imdbID){
-    temp.push(movie)}
-    return this.setState({
-      myShelf: temp
+  deleteFromShelf = (id) => {
+    console.log("hi")
+    this.setState({
+      myShelf: [...this.state.myShelf.filter(stateMovie => stateMovie.id !== id)]
     })
-    })
+    this.findMovieShelf(id)
   }
+
+  
+  findMovieShelf = (movieId) =>{
+    console.log(movieId)
+    fetch(`${localAPI}movie_shelves`)
+    .then(res => res.json())
+    .then(movieShelves => movieShelves.find(movieShelf => {
+      if(movieShelf.movie_id === movieId && movieShelf.shelf_id === 1){
+        this.removeShelfedMovie(movieShelf.id)
+      }
+    }
+    ))
+  }
+
+  removeShelfedMovie = (movieShelfId) => {
+    fetch(`${localAPI}movie_shelves/${movieShelfId}`, {
+      method: "DELETE",
+      headers:{
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      }
+    }
+    )
+    .then(res => res.json())
+    .then(data => console.log(data))
+  }
+  
 
   
 
@@ -120,29 +148,18 @@ class App extends Component {
     changeGenre = (newGenre) => {
       this.setState({ filter : newGenre })
     } 
-    render() {
-      
 
+    render() {
     return (
       <div className="App">
-         <div>
-        {/* <NavBar changeGenre={this.changeGenre} fetchMovies={this.fetchMovies} /> */}
-
-      </div>
-      <header>
-        <h1 className="text-center">Movie Library</h1>
-        </header>
-        <main>
-          
-          <Search handleInput={this.handleInput} search={this.search}/>
-          {/* <section className="results">
-                {this.state.myShelf.map(movie => (
-                    <MovieCard movie={movie}/>
-                ))}
-            </section> */}
-          <Results results={this.state.results} addToShelf={this.addToShelf}  />
-        <Shelf myShelf={this.state.myShelf} deleteFromShelf={this.deleteFromShelf}/>
-        </main>
+      <Router>
+        <div>
+      <NavBar />
+      <Route exact path="/" component={Home}/>
+      <Route exact path="/library" render={ routerProps => <Library {...routerProps} handleInput={this.handleInput} search={this.search} results={this.state.results} addToShelf={this.addToShelf} postToMovies={this.postToMovies}/>} />
+      <Route exact path="/shelf" render={ routerProps => <Shelf {...routerProps} myShelf={this.state.myShelf} deleteFromShelf={this.deleteFromShelf} showForm={this.showForm}/>} />
+        </div>
+      </Router>
       </div>
     )
   }

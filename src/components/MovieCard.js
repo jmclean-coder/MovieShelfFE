@@ -1,21 +1,35 @@
 import React, { Component, Fragment } from 'react'
 import Button from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card'
+import EditForm from './EditForm';
 
 
 class MovieCard extends Component {
 
     state = {
-        image: ''
+        toggleForm: false
     }
 
-    handleClick = () => {
-        this.props.deleteFromShelf(this.props.movie.imdb_id)
+    handleDeleteClick = () => {
+        this.props.deleteFromShelf(this.props.movie.id)
     }
 
     handleEditClick = () => {
-        this.props.showForm()
+        this.showForm()
     }
+
+    showForm = () => {
+        console.log("hi from show form")
+        if (this.state.toggleForm === false) {
+          this.setState({
+            toggleForm: true,
+          });
+        } else {
+          this.setState({
+            toggleForm: false,
+          });
+        }
+      };
 
     render() {
         return (
@@ -27,8 +41,9 @@ class MovieCard extends Component {
                     </Card.Body>
                     <Card.Img variant="top" src={this.props.movie.poster}/>
                     <Button variant="info" onClick={this.handleEditClick}>Edit Poster</Button>
-                    <Button variant="danger" onClick={this.handleClick}>Delete</Button>
+                    <Button variant="danger" onClick={this.handleDeleteClick}>Delete</Button>
                     </Card>
+                {this.state.toggleForm ? <EditForm /> : null}
                 </div>
             </Fragment>
         )
