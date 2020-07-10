@@ -44,7 +44,7 @@ export default class NavBar extends React.Component {
     render () {
         return (
             <div>
-                <Navbar bg="primary" variant="dark" expand="md">
+                <Navbar  fixed="top" bg="primary" variant="dark" expand="md">
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="mr-auto">
