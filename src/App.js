@@ -87,16 +87,40 @@ class App extends Component {
     this.handleFetch()
   }
 
-  deleteFromShelf = (imdbID) => {
+  deleteFromShelf = (id) => {
     console.log("hi")
-    let temp = []
-    this.state.myShelf.map(movie => {if(movie.imdbID !== imdbID){
-    temp.push(movie)}
-    return this.setState({
-      myShelf: temp
+    this.setState({
+      myShelf: [...this.state.myShelf.filter(stateMovie => stateMovie.id !== id)]
     })
-    })
+    this.findMovieShelf(id)
   }
+
+  
+  findMovieShelf = (movieId) =>{
+    console.log(movieId)
+    fetch(`${localAPI}movie_shelves`)
+    .then(res => res.json())
+    .then(movieShelves => movieShelves.find(movieShelf => {
+      if(movieShelf.movie_id == movieId && movieShelf.shelf_id == 1){
+        this.removeShelfedMovie(movieShelf.id)
+      }
+    }
+    ))
+  }
+
+  removeShelfedMovie = (movieShelfId) => {
+    fetch(`${localAPI}movie_shelves/${movieShelfId}`, {
+      method: "DELETE",
+      headers:{
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      }
+    }
+    )
+    .then(res => res.json())
+    .then(data => console.log(data))
+  }
+  
 
   
 
