@@ -3,10 +3,14 @@ import axios from 'axios'
 import NavBar from './components/NavBar'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Shelf from './components/Shelf'
+import Result from './components/Result'
+import MovieCard from './components/MovieCard'
 import {BrowserRouter as Router, Route} from 'react-router-dom'
 import Library from './components/Library';
 import Home from './components/Home';
-let API = 'http://www.omdbapi.com/?apikey=e742e527&'
+
+let API = `http://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&`
+
 let localAPI = 'http://localhost:3000/'
 
 
