@@ -1,11 +1,18 @@
 import React, { Component } from 'react'
+import Form from 'react-bootstrap/Form'
+import Container from 'react-bootstrap/Container'
+import Button from 'react-bootstrap/Button'
 
 class Search extends Component {
     render() {
         return (
+            <Container>
             <section className="search-wrap">
-        <input type="text" placeholder="Search for Movie Title" className="search" onChange={this.props.handleInput} onKeyPress={this.props.search}/>
-       </section>
+    <Form.Group>
+        <Form.Control onChange={this.props.handleInput} onKeyPress={this.props.search} size="lg" type="text" placeholder="Search for a Movie Title"/>
+    </Form.Group>
+    </section>
+    </Container>
         )
     }
 }
