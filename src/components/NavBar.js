@@ -1,5 +1,6 @@
 import React from 'react'
 import { Nav, Navbar, NavDropdown, Form, FormControl, Button, Container } from 'react-bootstrap';
+import { NavLink } from "react-router-dom";
 
 export default class NavBar extends React.Component {
 
@@ -40,7 +41,7 @@ export default class NavBar extends React.Component {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="mr-auto">
-                        <Nav.Link onClick={this.handleClickLibrary}>Library</Nav.Link>
+                        <Nav.Link to="/" exact onClick={this.handleClickLibrary}>Library</Nav.Link>
                         <Nav.Link onClick={this.handleClickShelf}>My Shelf</Nav.Link>
                         <NavDropdown title="Special Features" id="basic-nav-dropdown">
                             <NavDropdown.Item onClick={this.handleClickRandomMovie} value="random">Add Random Movie To My Shelf</NavDropdown.Item>
