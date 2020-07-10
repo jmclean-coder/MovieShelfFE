@@ -11,11 +11,11 @@ class Library extends React.Component {
     render(){
         return(
             <div>
+                <br></br> 
             <header>
             <h1>Movie Library</h1>
             </header>
             <main>
-
               <Search handleInput={this.props.handleInput} search={this.props.search}/>
               {/* <section className="results">
                     {this.state.myShelf.map(movie => (

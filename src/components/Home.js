@@ -6,6 +6,7 @@ class Home extends React.Component{
     render(){
         return(
             <header>
+                <br></br>
             <h1>Welcome!</h1>
             </header>
         )
