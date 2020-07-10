@@ -55,12 +55,12 @@ class App extends Component {
   }
 
   addToShelf = (movie) => {
-    if(!this.state.myShelf.includes(movie)){
-      this.setState({
-        myShelf: [...this.state.myShelf, movie]
-      })
-    }
+    let newMovie = [...this.state.myShelf, movie]
+    this.setState({
+      myShelf: newMovie
+    })
     this.postToMovies(movie)
+    
   }
   
   postToMovies = (movie) => {
@@ -101,7 +101,7 @@ class App extends Component {
     fetch(`${localAPI}movie_shelves`)
     .then(res => res.json())
     .then(movieShelves => movieShelves.find(movieShelf => {
-      if(movieShelf.movie_id == movieId && movieShelf.shelf_id == 1){
+      if(movieShelf.movie_id === movieId && movieShelf.shelf_id === 1){
         this.removeShelfedMovie(movieShelf.id)
       }
     }
@@ -148,11 +148,8 @@ class App extends Component {
       this.setState({ filter : newGenre })
     } 
     render() {
-      
-
     return (
       <div className="App">
-      
       <Router>
         <div>
       <NavBar />
