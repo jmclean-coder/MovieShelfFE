@@ -7,7 +7,6 @@ import Container from 'react-bootstrap/Container'
 
 class Results extends Component {
     render() {
-        // console.log(this.props.results)
         return (
             <section className="results">
                 <Container>

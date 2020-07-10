@@ -17,11 +17,11 @@ class Library extends React.Component {
             </header>
             <main>
               <Search handleInput={this.props.handleInput} search={this.props.search}/>
-              {/* <section className="results">
+              {/* WIP <section className="results">
                     {this.state.myShelf.map(movie => (
                         <MovieCard movie={movie}/>
                     ))}
-                </section> */}
+                </section> WIP */}
               <Results results={this.props.results} addToShelf={this.props.addToShelf} postToMovies={this.props.postToMovies} />
             </main>
           </div>

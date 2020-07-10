@@ -6,9 +6,6 @@ import Shelf from './components/Shelf'
 import {BrowserRouter as Router, Route} from 'react-router-dom'
 import Library from './components/Library';
 import Home from './components/Home';
-// import EditForm from './components/EditForm';
-// import Shelf from './components/Shelf'
-// import OpenPop from './components/OpenPop'
 let API = 'http://www.omdbapi.com/?apikey=e742e527&'
 let localAPI = 'http://localhost:3000/'
 

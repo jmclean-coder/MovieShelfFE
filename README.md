@@ -1,68 +1,57 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Flatiorn School: Seattle 0420 Cohort
+# MovieShelf: Module 4 Project
 
-## Available Scripts
+### Description: 
+This project was designed to enable a user to creat vision boards in order to turn a dream in to reality. Through the tool a user can:
 
-In the project directory, you can run:
+* Basic Routing with React Router
 
-### `yarn start`
+![Basic Routing](README_assets/movie_shelf_routes.gif)
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+* Search Movies From OMDB
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+![Search Movies](README_assets/movie_shelf_library.gif)
 
-### `yarn test`
+* Add a Movie to Your Shelf and Delete it.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![Basic Shelf Functions](README_assets/movie_shelf_add_delete.gif)
 
-### `yarn build`
+* Edit a Movie's Poster
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![Edit Form](README_assets/movie_shelf_edit_form.gif)
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `yarn eject`
+The backend of the application leverages Ruby on Rails API functionality to receive and send AJAX requests in a JSON formate. The interactive frontend is build on vanilla HTML and Javascript.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Team:
+* Colton Kaiser
+* Justin Langlinais
+* Joshua Mclean
+* Trevor Low
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Dependencies:
+* Node Package Manager (NPM)
+* Developed on Google Chrome (80.0.3987.149)
+* React Bootstrap
+* React Router
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Server Dependencies
+Refer to the backend repo at ```link``` for instructions to set up the backend server and PostGreSQL
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Installation:
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Assuming you already have all previously listed dependencies installed, download this entire git repository to your computer and place in your desired install directory. Via a terminal interface navigate to ```install_directory/frontend```. From this location execute ```npm install``` to install all other required node packages. 
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Running:
+This project was designed as a proof of concept so it requires hosting locally. To start hosting the local server navigate to ```install_directory/backend``` via a terminal interface and then execute ```rails s```. Next, from your Google Chrome browser navigate to your the rails s is function solely as a backend API for local development. It's recrommended to run the back first on port 3000 then the front end on a different port. At this point the application will load and all functionality will be available.
 
-### Code Splitting
+### License
+Copyright 2020 Colton Kaiser, Joshua Mclean, Justin Langlinais, Trevor Low
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
-### Analyzing the Bundle Size
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
