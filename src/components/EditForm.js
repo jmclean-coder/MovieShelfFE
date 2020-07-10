@@ -1,6 +1,8 @@
 import { React, Component, Fragment } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import MovieCard from "./MovieCard"
+import Shelf from './Shelf'
 
 class EditForm extends Component {
   state = {
@@ -20,15 +22,16 @@ class EditForm extends Component {
   };
 
   showForm = () => {
-    if (this.state.poster === false) {
-      this.setState({
-        showing: true,
-      });
-    } else {
-      this.setState({
-        showing: false,
-      });
-    }
+      console.log("hi")
+    // if (this.state.showing === false) {
+    //   this.setState({
+    //     showing: true,
+    //   });
+    // } else {
+    //   this.setState({
+    //     showing: false,
+    //   });
+    // }
   };
 
   render() {
@@ -50,7 +53,7 @@ class EditForm extends Component {
             </Button>
           </Form>
         )}
-        <MovieCard showForm={this.showForm}/>
+        <Shelf showForm={this.showForm}/>
       </Fragment>
     );
   }

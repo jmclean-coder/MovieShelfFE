@@ -7,9 +7,10 @@ import Results from './components/Results'
 import Shelf from './components/Shelf'
 import Result from './components/Result'
 import MovieCard from './components/MovieCard'
+
 // import Shelf from './components/Shelf'
 // import OpenPop from './components/OpenPop'
-let API = 'http://www.omdbapi.com/?apikey=e742e527&'
+let API = `http://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&`
 let localAPI = 'http://localhost:3000/'
 
 
