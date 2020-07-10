@@ -5,7 +5,7 @@ import Card from 'react-bootstrap/Card'
 
 class MovieCard extends Component {
     handleClick = () => {
-        this.props.deleteFromShelf(this.props.movie.imdb_id)
+        this.props.deleteFromShelf(this.props.movie.id)
     }
     render() {
         return (
