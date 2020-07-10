@@ -12,7 +12,7 @@ class Shelf extends Component {
                 <Container>
                 <CardGroup>
                     {this.props.myShelf.map(movie => (
-                        <MovieCard movie={movie} deleteFromShelf={this.props.deleteFromShelf}/>
+                        <MovieCard movie={movie} deleteFromShelf={this.props.deleteFromShelf} />
                     ))}
                 </CardGroup>
                 </Container>

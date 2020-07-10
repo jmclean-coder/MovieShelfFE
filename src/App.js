@@ -6,6 +6,7 @@ import Shelf from './components/Shelf'
 import {BrowserRouter as Router, Route} from 'react-router-dom'
 import Library from './components/Library';
 import Home from './components/Home';
+// import EditForm from './components/EditForm';
 // import Shelf from './components/Shelf'
 // import OpenPop from './components/OpenPop'
 let API = 'http://www.omdbapi.com/?apikey=e742e527&'
@@ -22,7 +23,7 @@ class App extends Component {
       results: [],
       selected: {},
       myShelf: [],
-      filter: 'all'
+      filter: 'all',
     }
   }
 
@@ -146,6 +147,7 @@ class App extends Component {
     changeGenre = (newGenre) => {
       this.setState({ filter : newGenre })
     } 
+
     render() {
     return (
       <div className="App">
@@ -154,7 +156,7 @@ class App extends Component {
       <NavBar />
       <Route exact path="/" component={Home}/>
       <Route exact path="/library" render={ routerProps => <Library {...routerProps} handleInput={this.handleInput} search={this.search} results={this.state.results} addToShelf={this.addToShelf} postToMovies={this.postToMovies}/>} />
-      <Route exact path="/shelf" render={ routerProps => <Shelf {...routerProps} myShelf={this.state.myShelf} deleteFromShelf={this.deleteFromShelf}/>}/>
+      <Route exact path="/shelf" render={ routerProps => <Shelf {...routerProps} myShelf={this.state.myShelf} deleteFromShelf={this.deleteFromShelf} showForm={this.showForm}/>} />
         </div>
       </Router>
       </div>

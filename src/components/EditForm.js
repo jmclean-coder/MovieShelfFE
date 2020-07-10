@@ -1,11 +1,10 @@
-import { React, Component, Fragment } from "react";
+import React, { Component } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 
 class EditForm extends Component {
   state = {
     poster: "",
-    showing: false,
   };
 
   handleChange = (e) => {
@@ -19,29 +18,15 @@ class EditForm extends Component {
     this.props.handleEditSubmit(this.state.poster);
   };
 
-  showForm = () => {
-    if (this.state.poster === false) {
-      this.setState({
-        showing: true,
-      });
-    } else {
-      this.setState({
-        showing: false,
-      });
-    }
-  };
-
   render() {
     return (
-      <Fragment>
-        {this.state.showing === false ? null : (
           <Form>
             <Form.Group>
               <Form.Label>New Image</Form.Label>
               <Form.Control
                 onSubmit={this.handleSubmit}
                 onChange={this.handleChange}
-                type="image"
+                type="text"
                 placeholder="Enter Image"
               />
             </Form.Group>
@@ -49,9 +34,6 @@ class EditForm extends Component {
               Submit
             </Button>
           </Form>
-        )}
-        <MovieCard showForm={this.showForm}/>
-      </Fragment>
     );
   }
 }
