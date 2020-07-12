@@ -33,6 +33,7 @@ The backend of the application leverages Ruby on Rails API functionality to rece
 ### Dependencies:
 * Node Package Manager (NPM)
 * Developed on Google Chrome (80.0.3987.149)
+* ReactJS
 * React Bootstrap
 * React Router
 
@@ -41,11 +42,18 @@ Refer to the backend repo at ```link``` for instructions to set up the backend s
 
 ### Installation:
 
+Download this entire git repository to your computer and place in your desired install directory. 
 
-Assuming you already have all previously listed dependencies installed, download this entire git repository to your computer and place in your desired install directory. Via a terminal interface navigate to ```install_directory/frontend```. From this location execute ```npm install``` to install all other required node packages. 
+If you don't have the above dependencies:
+
+First, if you do not currently have Node Package Manager (NPM), follow their guide here: https://docs.npmjs.com/downloading-and-installing-node-js-and-npm.
+
+Next, to install ReactJS, React Bootstrap, and React Router, in a terminal navigate to the directory in which you installed this repo, then execute `npm install react react-dom --save`. Then, run `npm install webpack webpack-dev-server webpack-cli --save`, `npm install react-bootstrap bootstrap`, and `npm install --save react-router-dom`
+
+Finally, execute ```npm install``` to install all other required node packages. 
 
 ### Running:
-This project was designed as a proof of concept so it requires hosting locally. To start hosting the local server navigate to ```install_directory/backend``` via a terminal interface and then execute ```rails s```. Next, from your Google Chrome browser navigate to your the rails s is function solely as a backend API for local development. It's recrommended to run the back first on port 3000 then the front end on a different port. At this point the application will load and all functionality will be available.
+This project was designed as a proof of concept so it requires hosting locally. To start hosting the local server navigate to the directory in which this repo was installed. Then, via a terminal interface execute ```npm start```. If you started your rails server before this you will be prompted to enter Y/N to use an unoccupied port. Enter `y` and after a moment your browser should automatically load the application. At this point the application will load and all functionality should be available.
 
 ### License
 Copyright 2020 Colton Kaiser, Joshua Mclean, Justin Langlinais, Trevor Low
