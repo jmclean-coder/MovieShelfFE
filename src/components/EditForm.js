@@ -10,26 +10,31 @@ class EditForm extends Component {
   };
 
   handleChange = (e) => {
+    e.persist()
     this.setState({
-      poster: e.target.value,
+      [e.target.name]: e.target.value
     });
   };
 
   handleSubmit = (e) => {
-    e.preventDefault();
-    this.props.handleEditSubmit(this.state.poster);
+    e.preventDefault()
+    //if edit form is expanded to include all attributes of a movie, and the keys in state EXACTLY MATCH the keys in obj, can change below to either send or overwrite the entire movie, or overwrite specific attributes in relation to the form.
+    let updatedMovie = {...this.props.movie, poster: this.state.poster}
+    console.log(updatedMovie)
+  
+    this.props.handleEditSubmit(updatedMovie);
   };
 
   render() {
     return (
-          <Form>
+          <Form onSubmit={this.handleSubmit}>
             <Form.Group>
               <Form.Label>New Image</Form.Label>
               <Form.Control
-                onSubmit={this.handleSubmit}
                 onChange={this.handleChange}
                 type="text"
                 placeholder="Enter Image"
+                name="poster"
               />
             </Form.Group>
             <Button variant="primary" type="submit">

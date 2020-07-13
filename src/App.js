@@ -33,6 +33,7 @@ class App extends Component {
   }
   
   handleFetch = () => {
+    console.log("hi")
     fetch(`${localAPI}shelves/1`).then(res=>res.json()).then(data=>{
       this.setState({myShelf: data.shelf.movies})
     })
@@ -53,13 +54,10 @@ class App extends Component {
   }
 
   addToShelf = (movie) => {
-    console.log("HI")
     let newMovie = [...this.state.myShelf, movie]
     this.setState({
       myShelf: newMovie
     })
-    // this.postToMovies(movie)
-    
   }
   
   postToMovies = (movie) => {
@@ -83,9 +81,6 @@ class App extends Component {
    
     )
     .then(r=>r.json()).then(d=> this.addToShelf(d.movie))
-      // .then()
-    // this.handleFetch()
-    // this.addToShelf(movie)
   }
 
   deleteFromShelf = (id) => {
@@ -127,7 +122,8 @@ class App extends Component {
 
   search = (e) => {
     if (e.key === "Enter"){
-      axios(API + "&s=" + this.state.input).then(({data}) => {
+      axios(API + "s=" + this.state.input)
+      .then(({data}) => {
         // console.log(data)
         let results = this.state.results 
         results = data.Search
@@ -139,15 +135,48 @@ class App extends Component {
     }
   }
   handleInput = (e) => {
-      let input = e.target.value
-      this.setState(prevState => {
-        return {...prevState, input:input}
-      })
-      // console.log(this.state.input)
+    let input = e.target.value
+    this.setState(prevState => {
+      return {...prevState, input:input}
+    })
+    // console.log(this.state.input)
+  }
+  changeGenre = (newGenre) => {
+    this.setState({ filter : newGenre })
+  }
+  
+  //currently we're only editing the shelf movie's poster, but if you expand the controlled form in EditForm.js(and it's state), the code below should scale with those changes.
+  handleEditSubmit = (updatedMovie) => {
+    console.log(updatedMovie)
+    
+    fetch(`${localAPI}movies/${updatedMovie.id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type" : "application/json",
+        Accept : "application/json",
+      },
+      body: JSON.stringify({
+            movie : updatedMovie
+          })
+        }
+      ).then(res => res.json())
+      .then(data => this.updateShelf(data))
     }
-    changeGenre = (newGenre) => {
-      this.setState({ filter : newGenre })
-    } 
+
+    updateShelf = (data) =>{
+      for(let i = 0; i < this.state.myShelf.length; i++ ){
+         if(this.state.myShelf[i].id === data.movie.id){
+           let startIndex = i
+           let updatedShelf = [...this.state.myShelf]
+            updatedShelf.splice(startIndex, 1, data.movie)
+            console.log(updatedShelf)
+          //  debugger
+           this.setState({ 
+             myShelf: updatedShelf
+             })
+         }
+        }
+    }
 
     render() {
     return (
@@ -157,7 +186,7 @@ class App extends Component {
       <NavBar />
       <Route exact path="/" component={Home}/>
       <Route exact path="/library" render={ routerProps => <Library {...routerProps} handleInput={this.handleInput} search={this.search} results={this.state.results} addToShelf={this.addToShelf} postToMovies={this.postToMovies}/>} />
-      <Route exact path="/shelf" render={ routerProps => <Shelf {...routerProps} myShelf={this.state.myShelf} deleteFromShelf={this.deleteFromShelf} showForm={this.showForm}/>} />
+      <Route exact path="/shelf" render={ routerProps => <Shelf {...routerProps} myShelf={this.state.myShelf} deleteFromShelf={this.deleteFromShelf} handleEditSubmit={this.handleEditSubmit}/>} />
         </div>
       </Router>
       </div>

@@ -40,10 +40,10 @@ class MovieCard extends Component {
                     <Card.Title as="h4" className="text-center">{this.props.movie.title} - {this.props.movie.year}</Card.Title>
                     </Card.Body>
                     <Card.Img variant="top" src={this.props.movie.poster}/>
-                    <Button variant="info" onClick={this.handleEditClick}>Edit Poster</Button>
+                    {this.state.toggleForm ? <Button variant="info" onClick={this.handleEditClick}>Close</Button> : <Button variant="info" onClick={this.handleEditClick}>Edit Poster</Button>}
                     <Button variant="danger" onClick={this.handleDeleteClick}>Delete</Button>
                     </Card>
-                {this.state.toggleForm ? <EditForm /> : null}
+                {this.state.toggleForm ? <EditForm handleEditSubmit={this.props.handleEditSubmit} movie={this.props.movie}/> : null}
                 </div>
             </Fragment>
         )
