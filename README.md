@@ -38,7 +38,7 @@ The backend of the application leverages Ruby on Rails API functionality to rece
 * React Router
 
 ### Server Dependencies
-Refer to the backend repo at ```link``` for instructions to set up the backend server and PostGreSQL
+Refer to the backend repo at ```https://github.com/jmclean-coder/MovieShelfBE``` for instructions to set up the backend server and PostGreSQL
 
 ### Installation:
 
@@ -50,7 +50,13 @@ First, if you do not currently have Node Package Manager (NPM), follow their gui
 
 Next, to install ReactJS, React Bootstrap, and React Router, in a terminal navigate to the directory in which you installed this repo, then execute `npm install react react-dom --save`. Then, run `npm install webpack webpack-dev-server webpack-cli --save`, `npm install react-bootstrap bootstrap`, and `npm install --save react-router-dom`
 
-Finally, execute ```npm install``` to install all other required node packages. 
+Finally, execute ```npm install``` to install all other required node packages.
+
+### External API Setup - Frontend
+The movie search functionality requires the setup of the Open Movie Database API with your own personal key. Visit ```http://www.omdbapi.com/``` to obtain a key.
+Once you have your key, navigate to the root directory of the project (MOVIESHELF-FRONTEND) and create a ```.env``` file. Inside this file on the first line type: ```REACT_APP_API_KEY=yourapikey```. This file will automatically be added to the .gitignore.
+In App.js on line 10, notice that the URL is being passed the api key via the environment variable, instead of it be hard-coded in. To maintain security, be sure to use the environment varible to refer to your key anywhere you use it.
+
 
 ### Running:
 This project was designed as a proof of concept so it requires hosting locally. To start hosting the local server navigate to the directory in which this repo was installed. Then, via a terminal interface execute ```npm start```. If you started your rails server before this you will be prompted to enter Y/N to use an unoccupied port. Enter `y` and after a moment your browser should automatically load the application. At this point the application will load and all functionality should be available.
