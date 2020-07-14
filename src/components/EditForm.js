@@ -33,7 +33,7 @@ class EditForm extends Component {
               <Form.Control
                 onChange={this.handleChange}
                 type="text"
-                placeholder="Enter Image"
+                placeholder="Enter Image Url"
                 name="poster"
               />
             </Form.Group>
