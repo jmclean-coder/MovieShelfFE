@@ -2,7 +2,7 @@
 # MovieShelf: Module 4 Project
 
 ### Description: 
-This project was designed to enable a user to creat vision boards in order to turn a dream in to reality. Through the tool a user can:
+This project was designed to enable a user to create their own movie library by accessing a massive database of movies, and deleting/modifying information as they please. Key features are as follows:
 
 * Basic Routing with React Router
 
@@ -38,7 +38,7 @@ The backend of the application leverages Ruby on Rails API functionality to rece
 * React Router
 
 ### Server Dependencies
-Refer to the backend repo at ```https://github.com/jmclean-coder/MovieShelfBE``` for instructions to set up the backend server and PostGreSQL
+Refer to the backend repo at ```https://github.com/ckaiser258/MovieShelfBE``` for instructions to set up the backend server and PostGreSQL
 
 ### Installation:
 
