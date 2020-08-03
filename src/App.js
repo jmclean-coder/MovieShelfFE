@@ -2,10 +2,10 @@ import React, { Component } from "react";
 import axios from "axios";
 import NavBar from "./components/NavBar";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Shelf from "./components/Shelf";
+import ShelfPage from "./containers/ShelfPage";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import Library from "./components/Library";
-import Home from "./components/Home";
+import LibraryPage from "./containers/LibraryPage";
+import HomePage from "./containers/HomePage";
 
 let API = `http://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&`;
 
@@ -185,12 +185,12 @@ class App extends Component {
         <Router>
           <div>
             <NavBar />
-            <Route exact path="/" component={Home} />
+            <Route exact path="/" component={HomePage} />
             <Route
               exact
               path="/library"
               render={(routerProps) => (
-                <Library
+                <LibraryPage
                   {...routerProps}
                   handleInput={this.handleInput}
                   search={this.search}
@@ -204,7 +204,7 @@ class App extends Component {
               exact
               path="/shelf"
               render={(routerProps) => (
-                <Shelf
+                <ShelfPage 
                   {...routerProps}
                   myShelf={this.state.myShelf}
                   deleteFromShelf={this.deleteFromShelf}

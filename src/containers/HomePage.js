@@ -1,10 +1,7 @@
 import React from 'react';
 import "../App.css"
 
-class Home extends React.Component{
-
-
-    render(){
+function HomePage(){
         return(
             <header>
                 <br></br>
@@ -15,6 +12,5 @@ class Home extends React.Component{
             </div>
             </header>
         )
-    }
 }
-export default Home
+export default HomePage

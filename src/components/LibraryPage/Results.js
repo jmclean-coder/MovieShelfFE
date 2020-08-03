@@ -1,24 +1,22 @@
 import React, { Component } from 'react'
-import Result from './Result'
+import Result from '../Result'
 import CardGroup from 'react-bootstrap/CardGroup'
 import Container from 'react-bootstrap/Container'
 
 
 
-class Results extends Component {
-    render() {
+function Results(props){
         return (
             <section className="results">
                 <Container>
                 <CardGroup>
-                {this.props.results.map(result => (
-                    <Result result={result} key={result.imdbID} addToShelf={this.props.addToShelf} postToMovies={this.props.postToMovies}/>
+                {props.results.map(result => (
+                    <Result result={result} key={result.imdbID} addToShelf={props.addToShelf} postToMovies={props.postToMovies}/>
                 ))}
                 </CardGroup>
                 </Container>
             </section>
         )
-    }
 }
 
 export default Results

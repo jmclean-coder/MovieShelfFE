@@ -10,38 +10,38 @@ const link = {
     color: 'white',
   }
 
-export default class NavBar extends React.Component {
+export default function NavBar(props) {
 
-    handleChange = (e) => {
-        this.props.changeGenre(e.target.value)
+    const handleChange = (e) => {
+        props.changeGenre(e.target.value)
     }
-    onShowGenreClick = () => {
+    const onShowGenreClick = () => {
         console.log("Filter genre!")
-        // this.props.fetchMovies()
+        // props.fetchMovies()
     }
 
-    handleClickLibrary = () => {
+    const handleClickLibrary = () => {
         console.log("Show the movie library!")
     }
 
-    handleClickShelf= () => {
+    const handleClickShelf= () => {
         console.log("Show my shelf!")
     }
 
-    handleClickRandomMovie = () => {
+    const handleClickRandomMovie = () => {
         console.log("Give me a random movie!")
-        // this.props.addRandomMovie()
+        // props.addRandomMovie()
     }
     
-    handleClickRandomGenre = () => {
+    const handleClickRandomGenre = () => {
         console.log("Give me a random genre!")
     }
     
-    handleClickSomethingAwesome = () => {
+    const handleClickSomethingAwesome = () => {
         console.log("Give me something awesome!")
     }
     
-    render () {
+  
         return (
             <div>
                 <Navbar  fixed="top" bg="primary" variant="dark" expand="md">
@@ -79,5 +79,5 @@ export default class NavBar extends React.Component {
                 </Navbar>
             </div>
         )
-    }
+    
 }
