@@ -1,10 +1,11 @@
-import React, { Component } from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import React from "react";
+import { Container, Jumbotron } from "react-bootstrap";
 import MovieCard from "./MovieCard";
 import CardGroup from "react-bootstrap/CardGroup";
 
 const Shelf = (props) => {
-  return (
+    console.log(props.myShelf)
+  return props.myShelf.length ? (
     <div>
       <h1 className="text-center">My Movies!</h1>
       <Container>
@@ -19,6 +20,7 @@ const Shelf = (props) => {
         </CardGroup>
       </Container>
     </div>
+  ) : (<h1 className="text-center" style={{marginTop: 300}}>You don't have any movies on your shelf yet</h1>
   );
 };
 
