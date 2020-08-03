@@ -69,9 +69,9 @@ export default class NavBar extends React.Component {
                             <NavDropdown.Item onClick={this.handleClickRandomGenre}>Show Me A Random Genre</NavDropdown.Item>
                             <NavDropdown.Item onClick={this.handleClickSomethingAwesome}>Do Something Really Cool</NavDropdown.Item>
                         </NavDropdown> */}
-              <Form inline onChange={this.handleChange}>
+              {/* <Form inline onChange={this.handleChange}>
                 <Form.Group controlId="genreSelect">
-                  {/* <Form.Label>Genre select</Form.Label> */}
+                  <Form.Label>Genre select</Form.Label>
                   <Form.Control as="select">
                     <option value="all">All</option>
                     <option value="action">Action</option>
@@ -82,9 +82,9 @@ export default class NavBar extends React.Component {
                 <Button variant="outline-light" onClick={this.onShowGenreClick}>
                   Filter Genre
                 </Button>
-              </Form>
+              </Form> */}
             </Nav>
-            <Form inline>
+            {/* <Form inline>
               <FormControl
                 type="text"
                 placeholder="Search Library"
@@ -92,7 +92,7 @@ export default class NavBar extends React.Component {
                 onSubmit={this.handleClick}
               />
               <Button variant="outline-light">Search</Button>
-            </Form>
+            </Form> */}
           </Navbar.Collapse>
           <Navbar.Brand>MovieShelf™</Navbar.Brand>
         </Navbar>
