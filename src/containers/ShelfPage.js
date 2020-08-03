@@ -1,9 +1,9 @@
 import React from "react";
 import { Container, Jumbotron } from "react-bootstrap";
-import MovieCard from "./MovieCard";
+import MovieCard from "../components/MovieCard";
 import CardGroup from "react-bootstrap/CardGroup";
 
-const Shelf = (props) => {
+const ShelfPage = (props) => {
     console.log(props.myShelf)
   return props.myShelf.length ? (
     <div>
@@ -24,4 +24,4 @@ const Shelf = (props) => {
   );
 };
 
-export default Shelf;
+export default ShelfPage;

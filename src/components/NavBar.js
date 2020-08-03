@@ -17,57 +17,52 @@ const link = {
   color: "white",
 };
 
-export default class NavBar extends React.Component {
-  handleChange = (e) => {
-    this.props.changeGenre(e.target.value);
-  };
-  onShowGenreClick = () => {
-    console.log("Filter genre!");
-    // this.props.fetchMovies()
-  };
+export default function NavBar(props) {
 
-  handleClickLibrary = () => {
-    console.log("Show the movie library!");
-  };
+    const handleChange = (e) => {
+        props.changeGenre(e.target.value)
+    }
+    const onShowGenreClick = () => {
+        console.log("Filter genre!")
+        // props.fetchMovies()
+    }
 
-  handleClickShelf = () => {
-    console.log("Show my shelf!");
-  };
+    const handleClickLibrary = () => {
+        console.log("Show the movie library!")
+    }
 
-  handleClickRandomMovie = () => {
-    console.log("Give me a random movie!");
-    // this.props.addRandomMovie()
-  };
+    const handleClickShelf= () => {
+        console.log("Show my shelf!")
+    }
 
-  handleClickRandomGenre = () => {
-    console.log("Give me a random genre!");
-  };
-
-  handleClickSomethingAwesome = () => {
-    console.log("Give me something awesome!");
-  };
-
-  render() {
-    return (
-      <div>
-        <Navbar fixed="top" bg="primary" variant="dark" expand="md">
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="mr-auto">
-              <NavLink to="/" style={link}>
-                Home
-              </NavLink>
-              <NavLink to="/shelf" style={link}>
-                My Shelf
-              </NavLink>
-              <NavLink to="/library" style={link}>
-                Library
-              </NavLink>
-              {/* <NavDropdown title="Special Features" id="basic-nav-dropdown">
-                            <NavDropdown.Item onClick={this.handleClickRandomMovie} value="random">Add Random Movie To My Shelf</NavDropdown.Item>
+    const handleClickRandomMovie = () => {
+        console.log("Give me a random movie!")
+        // props.addRandomMovie()
+    }
+    
+    const handleClickRandomGenre = () => {
+        console.log("Give me a random genre!")
+    }
+    
+    const handleClickSomethingAwesome = () => {
+        console.log("Give me something awesome!")
+    }
+    
+  
+        return (
+            <div>
+                <Navbar  fixed="top" bg="primary" variant="dark" expand="md">
+                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                    <Navbar.Collapse id="basic-navbar-nav">
+                        <Nav className="mr-auto">
+                        <NavLink to='/' style={link}>Home</NavLink>
+                        <NavLink to='/shelf' style={link}>My Shelf</NavLink>
+                        <NavLink to='/library' style={link}>Library</NavLink>
+                        {/* <NavDropdown title="Special Features" id="basic-nav-dropdown">
+                            <NavDropdown.Item onClick={handleClickRandomMovie} value="random">Add Random Movie To My Shelf</NavDropdown.Item>
                             <NavDropdown.Divider />
-                            <NavDropdown.Item onClick={this.handleClickRandomGenre}>Show Me A Random Genre</NavDropdown.Item>
-                            <NavDropdown.Item onClick={this.handleClickSomethingAwesome}>Do Something Really Cool</NavDropdown.Item>
+                            <NavDropdown.Item onClick={handleClickRandomGenre}>Show Me A Random Genre</NavDropdown.Item>
+                            <NavDropdown.Item onClick={handleClickSomethingAwesome}>Do Something Really Cool</NavDropdown.Item>
                         </NavDropdown> */}
               {/* <Form inline onChange={this.handleChange}>
                 <Form.Group controlId="genreSelect">
@@ -99,4 +94,3 @@ export default class NavBar extends React.Component {
       </div>
     );
   }
-}
