@@ -1,24 +1,27 @@
-import React, { Component } from 'react'
-import { Container, Row, Col } from 'react-bootstrap';
-import MovieCard from './MovieCard'
-import CardGroup from 'react-bootstrap/CardGroup'
+import React from "react";
+import { Container, Jumbotron } from "react-bootstrap";
+import MovieCard from "./MovieCard";
+import CardGroup from "react-bootstrap/CardGroup";
 
-class Shelf extends Component {
-    render() {
-        let rowCount = 1
-        return (
-            <div>
-                <h1 className="text-center">My Movies!</h1>
-                <Container>
-                <CardGroup>
-                    {this.props.myShelf.map(movie => (
-                        <MovieCard movie={movie} deleteFromShelf={this.props.deleteFromShelf} handleEditSubmit={this.props.handleEditSubmit} />
-                    ))}
-                </CardGroup>
-                </Container>
-            </div>
-        )
-    }
-}
+const Shelf = (props) => {
+    console.log(props.myShelf)
+  return props.myShelf.length ? (
+    <div>
+      <h1 className="text-center">My Movies!</h1>
+      <Container>
+        <CardGroup>
+          {props.myShelf.map((movie) => (
+            <MovieCard
+              movie={movie}
+              deleteFromShelf={props.deleteFromShelf}
+              handleEditSubmit={props.handleEditSubmit}
+            />
+          ))}
+        </CardGroup>
+      </Container>
+    </div>
+  ) : (<h1 className="text-center" style={{marginTop: 300}}>You don't have any movies on your shelf yet</h1>
+  );
+};
 
-export default Shelf
+export default Shelf;
