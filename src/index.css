@@ -1,4 +1,3 @@
-
 body {
 	font-family: 'Times New Roman', Times, serif;
 	background-color: black;
@@ -25,11 +24,7 @@ main {
 section {
 	padding: 15px;
 }
-.card {    
-	max-width: 300px;
-}
 
-/* 
-#bootstrap-overrides .result-card{
-	max-width: 300px;
-} */
+.card {
+	max-width: 300px ;
+}

@@ -1,14 +1,21 @@
-import React from 'react'
-import { Nav, Navbar, NavDropdown, Form, FormControl, Button} from 'react-bootstrap';
-import {NavLink} from 'react-router-dom'
+import React from "react";
+import {
+  Nav,
+  Navbar,
+  NavDropdown,
+  Form,
+  FormControl,
+  Button,
+} from "react-bootstrap";
+import { NavLink } from "react-router-dom";
 
 const link = {
-    width: '100px',
-    padding: '12px',
-    margin: '0 6px 6px',
-    textDecoration: 'none',
-    color: 'white',
-  }
+  width: "100px",
+  padding: "12px",
+  margin: "0 6px 6px",
+  textDecoration: "none",
+  color: "white",
+};
 
 export default function NavBar(props) {
 
@@ -51,13 +58,13 @@ export default function NavBar(props) {
                         <NavLink to='/' style={link}>Home</NavLink>
                         <NavLink to='/shelf' style={link}>My Shelf</NavLink>
                         <NavLink to='/library' style={link}>Library</NavLink>
-                        <NavDropdown title="Special Features" id="basic-nav-dropdown">
-                            <NavDropdown.Item onClick={this.handleClickRandomMovie} value="random">Add Random Movie To My Shelf</NavDropdown.Item>
+                        {/* <NavDropdown title="Special Features" id="basic-nav-dropdown">
+                            <NavDropdown.Item onClick={handleClickRandomMovie} value="random">Add Random Movie To My Shelf</NavDropdown.Item>
                             <NavDropdown.Divider />
-                            <NavDropdown.Item onClick={this.handleClickRandomGenre}>Show Me A Random Genre</NavDropdown.Item>
-                            <NavDropdown.Item onClick={this.handleClickSomethingAwesome}>Do Something Really Cool</NavDropdown.Item>
-                        </NavDropdown>
-                        <Form inline onChange={this.handleChange}>
+                            <NavDropdown.Item onClick={handleClickRandomGenre}>Show Me A Random Genre</NavDropdown.Item>
+                            <NavDropdown.Item onClick={handleClickSomethingAwesome}>Do Something Really Cool</NavDropdown.Item>
+                        </NavDropdown> */}
+                        <Form inline onChange={handleChange}>
                             <Form.Group controlId="genreSelect">
                                 {/* <Form.Label>Genre select</Form.Label> */}
                                 <Form.Control as="select">
@@ -67,13 +74,13 @@ export default function NavBar(props) {
                                     <option value="drama">Drama</option>
                                 </Form.Control>
                             </Form.Group>
-                        <Button variant="outline-light" onClick={this.onShowGenreClick}>Filter Genre</Button>
+                        <Button variant="outline-light" onClick={onShowGenreClick}>Filter Genre</Button>
                         </Form>
                         </Nav>
-                        <Form inline>
-                            <FormControl type="text" placeholder="Search Library" className="mr-sm-2" onSubmit={this.handleClick}/>
+                        {/* <Form inline>
+                            <FormControl type="text" placeholder="Search Library" className="mr-sm-2" onSubmit={handleClick}/>
                             <Button variant="outline-light" >Search</Button>
-                        </Form>
+                        </Form> */}
                     </Navbar.Collapse>
                 <Navbar.Brand >MovieShelf™</Navbar.Brand>
                 </Navbar>
