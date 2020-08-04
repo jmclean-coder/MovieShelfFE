@@ -22,7 +22,7 @@ This project was designed to enable a user to create their own movie library by 
 
 
 
-The backend of the application leverages Ruby on Rails API functionality to receive and send AJAX requests in a JSON formate. The interactive frontend is build on vanilla HTML and Javascript.
+The backend of the application leverages Ruby on Rails API functionality to receive and send AJAX requests in a JSON formate. The interactive frontend is build on ReactJS, HTML, and CSS.
 
 ### Team:
 * Colton Kaiser
