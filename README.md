@@ -1,4 +1,4 @@
-### Flatiorn School: Seattle 0420 Cohort
+### Flatiron School: Seattle 0420 Cohort
 # MovieShelf: Module 4 Project
 
 ### Description: 
