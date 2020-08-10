@@ -14,6 +14,7 @@ function Results(props) {
               key={result.imdbID}
               addToShelf={props.addToShelf}
               postToMovies={props.postToMovies}
+              fetchDetails={props.fetchDetails}
             />
           ))}
         </CardGroup>
