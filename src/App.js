@@ -7,7 +7,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import LibraryPage from "./containers/LibraryPage";
 import HomePage from "./containers/HomePage";
 
-let API = `http://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&`;
+const API = `http://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&`;
 
 let localAPI = "http://localhost:3000/";
 
@@ -18,7 +18,6 @@ class App extends Component {
     this.state = {
       input: "",
       results: [],
-      selected: {},
       myShelf: [],
       filter: "all",
     };
@@ -44,16 +43,22 @@ class App extends Component {
         if (this.state.filter !== "all") {
           j.filter((movie) => {
             // use .includes for multiple genres
-            return movie.genre === this.state.filter;
+            return movie.genre.this.state.filter;
           });
         } else {
           this.setState({ movies: j });
         }
       });
   };
+  //after add to shelf is clicked, fetch the detailed movie resource with the movies imdb_id
+  fetchDetails = (movie) => {
+    console.log(movie);
+    return fetch(`${API}i=${movie.imdbID}`).then((res) => res.json());
+  };
 
-  //after add to shelf is clicked, POST movie to Database, then add to sehlf
+  //after the detailed movie is recieved, post selected data to backend
   postToMovies = (movie) => {
+    console.log(movie);
     fetch(`${localAPI}movies`, {
       method: "POST",
       headers: {
@@ -64,9 +69,13 @@ class App extends Component {
         movie: {
           title: movie.Title,
           year: movie.Year,
+          genre: movie.Genre,
           poster: movie.Poster,
-          genre: "Animation, Action, Adventure, Sci-Fi",
           imdb_id: movie.imdbID,
+          plot: movie.Plot,
+          ratings: movie.Ratings,
+          mpa_rated: movie.Rated,
+          director: movie.Director,
         },
       }),
     })
@@ -78,7 +87,6 @@ class App extends Component {
   addToShelf = (movie) => {
     let newMovie = [...this.state.myShelf, movie];
     const exists = (stateMovie) => stateMovie.id === movie.id;
-    console.log(!this.state.myShelf.some(exists));
     if (!this.state.myShelf.some(exists)) {
       this.setState({
         myShelf: newMovie,
@@ -184,7 +192,7 @@ class App extends Component {
       <div className="App">
         <Router>
           <div>
-            <NavBar />
+            <NavBar shelf={this.state.myShelf} />
             <Route exact path="/" component={HomePage} />
             <Route
               exact
@@ -197,6 +205,7 @@ class App extends Component {
                   results={this.state.results}
                   addToShelf={this.addToShelf}
                   postToMovies={this.postToMovies}
+                  fetchDetails={this.fetchDetails}
                 />
               )}
             />
@@ -204,7 +213,7 @@ class App extends Component {
               exact
               path="/shelf"
               render={(routerProps) => (
-                <ShelfPage 
+                <ShelfPage
                   {...routerProps}
                   myShelf={this.state.myShelf}
                   deleteFromShelf={this.deleteFromShelf}
@@ -220,28 +229,6 @@ class App extends Component {
 }
 
 export default App;
-
-// let popOut = id => {
-//   axios(API + "&i=" + id).then(({ data }) => {
-//     let result = data;
-
-//     // console.log(result);
-
-//     setState(prevState => {
-//       return { ...prevState, selected: result }
-//     });
-//   });
-// }
-
-// let closePop = () => {
-//   setState(prevState => {
-//     return {...prevState , selected: {} }
-//   })
-// }
-
-// addToShelf = () => {
-
-// addToShelf = () => {
 
 // BELOW IS JUSTIN'S PLACEHOLDER CALL TO POPULATE MOVIES BASED ON GENRE FILTER
 

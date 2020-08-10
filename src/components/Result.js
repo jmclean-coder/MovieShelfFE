@@ -4,8 +4,12 @@ import Card from "react-bootstrap/Card";
 
 function Result(props) {
   const handleClick = () => {
-    // props.addToShelf(props.result)
-    props.postToMovies(props.result);
+    console.log(props.result)
+    props.fetchDetails(props.result)
+    .then(detailedMovie => {
+      console.log(detailedMovie)
+        props.postToMovies(detailedMovie)
+    });
   };
 
   // console.log(props.result)
@@ -15,7 +19,7 @@ function Result(props) {
         <Card bg={"light"}>
           <Card.Body>
             <Card.Title as="h3" className="text-center">
-              {props.result.Title} - {props.result.Year}
+              {props.result.Title}
             </Card.Title>
           </Card.Body>
           <Card.Img variant="bottom" src={props.result.Poster}></Card.Img>
