@@ -11,7 +11,7 @@ function LibraryPage(props) {
             </header>
             <main>
               <Search handleInput={props.handleInput} search={props.search}/>
-              <Results results={props.results} addToShelf={props.addToShelf} postToMovies={props.postToMovies} />
+              <Results results={props.results} addToShelf={props.addToShelf} postToMovies={props.postToMovies} fetchDetails={props.fetchDetails}/>
             </main>
           </div>
         )
