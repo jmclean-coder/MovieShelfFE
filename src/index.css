@@ -1,25 +1,18 @@
-body {
-	font-family: 'Times New Roman', Times, serif;
-	background-color: black;
+body #root {
+	font-family: 'Montserrat', sans-serif;
 }
 
-header {
-	padding: 50px 15px 0px;
+body{
+	
 }
 
-header h1 {
-	color: black;
-	font-size: 56px;
-	font-weight: 550;
-	text-align: center;
+.App{
+	background-color: #1E1C1C;
+	position: relative;
+  min-height: 100vh;
 }
 
 
-main {
-	width: 100%;
-	max-width: 1600px;
-	margin: 0 auto;
-}
 
 section {
 	padding: 15px;
@@ -27,4 +20,41 @@ section {
 
 .card {
 	max-width: 300px ;
+	box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.2), 0 10px 20px 0 rgba(0, 0, 0, 0.19);
+	background-color: #212121;
 }
+
+.page-header-box{
+    height: 25em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+	top: 82px;
+	background-color: #FF4545;
+}
+
+.page-header{
+	margin: 0;
+	color: white;
+	font-size: 4em;
+	text-align: center;
+
+}
+
+#site-footer{
+	/* margin-top: -25em; */
+	height: 25em;
+	background-color: #FF4545;
+	width: 100%;
+	
+}
+
+.content-wrapper {
+	padding: 20px;
+	min-height: 100em;
+
+  }
+
+
+

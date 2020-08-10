@@ -36,9 +36,9 @@ class MovieCard extends Component {
     return (
         <div className="mx-auto">
           <Container>
-          <Card bg={"light"} style={{marginTop: 30}}>
+          <Card style={{marginTop: 30, backgroundColor: "#212121"}}>
             <Card.Body>
-              <Card.Title as="h3" className="text-center">
+              <Card.Title as="h3" className="text-center" style={{color: "white"}}>
                 {this.props.movie.title}
               </Card.Title>
             </Card.Body>

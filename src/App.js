@@ -6,6 +6,8 @@ import ShelfPage from "./containers/ShelfPage";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import LibraryPage from "./containers/LibraryPage";
 import HomePage from "./containers/HomePage";
+import Footer from './components/Footer'
+import Header from './components/Header'
 
 const API = `http://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&`;
 
@@ -189,9 +191,10 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div className="App Site">
+  
         <Router>
-          <div>
+          <div className="Site-content">
             <NavBar shelf={this.state.myShelf} />
             <Route exact path="/" component={HomePage} />
             <Route
@@ -223,6 +226,7 @@ class App extends Component {
             />
           </div>
         </Router>
+        <Footer />
       </div>
     );
   }
