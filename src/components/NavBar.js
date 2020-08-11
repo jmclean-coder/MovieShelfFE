@@ -14,13 +14,13 @@ const link = {
   padding: "12px",
   margin: "0 6px 6px",
 
-  color: "#FF4545"
+  color: "#FF4545",
 };
 const brand = {
   width: "120px",
   padding: "12px",
 
-  color: "#FF4545"
+  color: "#FF4545",
 };
 
 export default function NavBar(props) {
@@ -57,7 +57,7 @@ export default function NavBar(props) {
   const getGenres = props.shelf.map((movie) => {
     return movie.genre;
   });
-  
+
   /*
   define options and assign to empty array 
   loop over getGenres AoAg
@@ -66,7 +66,7 @@ export default function NavBar(props) {
   add genre to options array unless options array includes genre
   return options
   */
-  
+
   const getOptionsFromShelfGenres = () => {
     let options = [];
     for (let i = 0; i < getGenres.length; i++) {
@@ -88,12 +88,14 @@ export default function NavBar(props) {
     });
   };
 
-
-
-
   return (
     <div>
-      <Navbar fixed="top" style={{backgroundColor: "#2d2d2d"}} variant="dark" expand="md">
+      <Navbar
+        fixed="top"
+        style={{ backgroundColor: "#2d2d2d" }}
+        variant="dark"
+        expand="md"
+      >
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
@@ -116,14 +118,12 @@ export default function NavBar(props) {
               <Form inline onChange={handleChange}>
                 <Form.Group controlId="genreSelect">
                   {/* <Form.Label>Genre select</Form.Label> */}
-                  <Form.Control
-                    as="select"
-                    >
+                  <Form.Control as="select">
                     <option value="all">All</option>
                     {renderOptionTags(getOptionsFromShelfGenres())}
                   </Form.Control>
                 </Form.Group>
-                  <p id="filter-genre" >Filter Genre</p> 
+                <p id="filter-genre">Filter Genre</p>
               </Form>
             ) : null}
           </Nav>
