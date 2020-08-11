@@ -68,4 +68,11 @@ section {
 	flex: 1;
   }
 
+  a:link {
+    color: white;
+    text-decoration: underline;
+    background-color: transparent;
+}
+
+
 
