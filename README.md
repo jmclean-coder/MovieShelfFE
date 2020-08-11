@@ -22,7 +22,7 @@ This project was designed to enable a user to create their own movie library by 
 
 ![Details](README_assets/details_mvs.gif)
 
-* Default Movie Poster
+* See the Default Movie Poster
 
 ![Default](README_assets/default_mvs.gif)
 
@@ -34,7 +34,7 @@ This project was designed to enable a user to create their own movie library by 
 
 ![Delete](README_assets/delete_mvs.gif)
 
-* Changes Persisted
+* Persist Changes
 
 ![Persist](README_assets/persist_mvs.gif)
 
