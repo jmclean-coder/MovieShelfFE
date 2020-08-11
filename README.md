@@ -1,24 +1,44 @@
 ### Flatiron School: Seattle 0420 Cohort
 # MovieShelf: Module 4 Project
 
+![Welcome](README_assets/welcome_mvs.gif)
+
 ### Description: 
 This project was designed to enable a user to create their own movie library by accessing a massive database of movies, and deleting/modifying information as they please. Key features are as follows:
 
-* Basic Routing with React Router
+* Routing with React Router
 
-![Basic Routing](README_assets/movie_shelf_routes.gif)
+![Pages](README_assets/pages_mvs.gif)
 
-* Search Movies From OMDB
+* Search Movies From OMDB and add them to your Shelf
 
-![Search Movies](README_assets/movie_shelf_library.gif)
+![Search Movies](README_assets/add_mvs.gif)
 
-* Add a Movie to Your Shelf and Delete it.
+* Handling of invalid search/can't find movie
 
-![Basic Shelf Functions](README_assets/movie_shelf_add_delete.gif)
+![Search Error](README_assets/error_mvs.gif)
+
+* View Movie Details
+
+![Details](README_assets/details_mvs.gif)
+
+* Default Movie Poster
+
+![Default](README_assets/default_mvs.gif)
 
 * Edit a Movie's Poster
 
-![Edit Form](README_assets/movie_shelf_edit_form.gif)
+![Edit Form](README_assets/edit_mvs.gif)
+
+* Delete a Movie
+
+![Delete](README_assets/delete_mvs.gif)
+
+* Changes Persisted
+
+![Persist](README_assets/persist_mvs.gif)
+
+
 
 
 

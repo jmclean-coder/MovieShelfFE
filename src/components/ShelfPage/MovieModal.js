@@ -11,7 +11,7 @@ export default function MovieModal(props) {
 
   const renderRatingInfo = () => {
     return props.movie.ratings.map((movieRating) => (
-      <p style={{ color: "white" }} className="movie-rating">
+      <p style={{ color: "white" }} className="movie-rating" key={`rating_${movieRating.Source}`}>
         {movieRating.Source}: {movieRating.Value}
       </p>
     ));
