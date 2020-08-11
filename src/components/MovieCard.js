@@ -2,13 +2,18 @@ import React, { Component, Fragment } from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import EditForm from "./EditForm";
-import Container from "react-bootstrap/Container"
-import MovieModal from '../components/ShelfPage/MovieModal'
+import Container from "react-bootstrap/Container";
+import MovieModal from "../components/ShelfPage/MovieModal";
 
 class MovieCard extends Component {
   state = {
     toggleForm: false,
     toggleModal: false,
+  };
+
+  handleImageError = (e) => {
+    e.target.src =
+      "https://i.pinimg.com/originals/be/58/f5/be58f582e749c1f722df0f38be5e0995.jpg";
   };
 
   handleDeleteClick = () => {
@@ -34,15 +39,24 @@ class MovieCard extends Component {
 
   render() {
     return (
-        <div className="mx-auto">
-          <Container>
-          <Card style={{marginTop: 30, backgroundColor: "#2d2d2d"}}>
+      <div className="mx-auto">
+        <Container>
+          <Card style={{ marginTop: 30, backgroundColor: "#2d2d2d" }}>
             <Card.Body>
-              <Card.Title as="h3" className="text-center" style={{color: "white"}}>
+              <Card.Title
+                as="h3"
+                className="text-center"
+                style={{ color: "white" }}
+              >
                 {this.props.movie.title}
               </Card.Title>
             </Card.Body>
-            <Card.Img variant="top" src={this.props.movie.poster} />
+            <Card.Img
+              variant="top"
+              src={this.props.movie.poster}
+              onError={this.handleImageError}
+              style={{ maxHeight: 410 }}
+            />
             <MovieModal movie={this.props.movie} />
             {this.state.toggleForm ? (
               <Button variant="info" onClick={this.handleEditClick}>
@@ -56,16 +70,15 @@ class MovieCard extends Component {
             <Button variant="danger" onClick={this.handleDeleteClick}>
               Delete
             </Button>
-            
           </Card>
-          </Container>
-          {this.state.toggleForm ? (
-            <EditForm
+        </Container>
+        {this.state.toggleForm ? (
+          <EditForm
             handleEditSubmit={this.props.handleEditSubmit}
             movie={this.props.movie}
-            />
-            ) : null}
-        </div>
+          />
+        ) : null}
+      </div>
     );
   }
 }
