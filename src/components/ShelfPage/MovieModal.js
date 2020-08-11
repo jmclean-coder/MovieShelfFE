@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import { Button, Modal, Image } from "react-bootstrap";
 
 // let API = `http://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&`;
@@ -19,7 +19,6 @@ export default function MovieModal(props) {
 
   return (
     <>
-      {console.log(props.movie)}
       <Button variant="primary" onClick={handleShow}>
         Details
       </Button>

@@ -28,6 +28,7 @@ const ShelfPage = (props) => {
                     movie={movie}
                     deleteFromShelf={props.deleteFromShelf}
                     handleEditSubmit={props.handleEditSubmit}
+                    key={movie.imdb_id}
                   />
                 ): null)
           )}

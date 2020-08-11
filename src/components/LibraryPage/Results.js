@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import Result from "../Result";
 import CardGroup from "react-bootstrap/CardGroup";
 import Container from "react-bootstrap/Container";

@@ -1,11 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 import {
   Nav,
   Navbar,
-  NavDropdown,
+  // NavDropdown,
   Form,
-  FormControl,
-  Button,
+  // FormControl,
 } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 
@@ -28,30 +27,30 @@ export default function NavBar(props) {
     props.changeGenre(e.target.value);
     // props.filterShelf(e.target.value)
   };
-  const onShowGenreClick = () => {
-    console.log("Filter genre!");
-    // props.fetchMovies()
-  };
+  // const onShowGenreClick = () => {
+  //   console.log("Filter genre!");
+  //   // props.fetchMovies()
+  // };
 
-  const handleClickLibrary = () => {
-    console.log("Show the movie library!");
-  };
+  // const handleClickLibrary = () => {
+  //   console.log("Show the movie library!");
+  // };
 
-  const handleClickShelf = () => {
-    console.log("Show my shelf!");
-  };
+  // const handleClickShelf = () => {
+  //   console.log("Show my shelf!");
+  // };
 
-  const handleClickRandomMovie = () => {
-    console.log("Give me a random movie!");
-  };
+  // const handleClickRandomMovie = () => {
+  //   console.log("Give me a random movie!");
+  // };
 
-  const handleClickRandomGenre = () => {
-    console.log("Give me a random genre!");
-  };
+  // const handleClickRandomGenre = () => {
+  //   console.log("Give me a random genre!");
+  // };
 
-  const handleClickSomethingAwesome = () => {
-    console.log("Give me something awesome!");
-  };
+  // const handleClickSomethingAwesome = () => {
+  //   console.log("Give me something awesome!");
+  // };
 
   //map over movies in shelf, return array of arrays of those movies' genres
   const getGenres = props.shelf.map((movie) => {
@@ -84,7 +83,7 @@ export default function NavBar(props) {
 
   const renderOptionTags = (options) => {
     return options.map((option) => {
-      return <option value={option}>{option}</option>;
+      return <option value={option} key={option}>{option}</option>;
     });
   };
 
