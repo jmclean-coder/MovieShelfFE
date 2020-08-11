@@ -1,15 +1,14 @@
 body #root {
 	font-family: 'Montserrat', sans-serif;
+	padding-top: 4.4em;
 }
 
-body{
-	
-}
 
 .App{
 	background-color: #1E1C1C;
-	position: relative;
+	display: flex;
   min-height: 100vh;
+  flex-direction: column;
 }
 
 
@@ -20,41 +19,53 @@ section {
 
 .card {
 	max-width: 300px ;
-	box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.2), 0 10px 20px 0 rgba(0, 0, 0, 0.19);
-	background-color: #212121;
+	box-shadow: 0 -2px 50px 0 rgba(0, 0, 0, 1);
+
 }
 
 .page-header-box{
-    height: 25em;
+    height: 15em;
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
-	top: 82px;
 	background-color: #FF4545;
+	border-radius: 0em 0em 2em 2em;
 }
 
 .page-header{
 	margin: 0;
 	color: white;
-	font-size: 4em;
+	font-size: 2em;
 	text-align: center;
 
 }
 
+.footer-text{
+	margin: 0;
+	color: white;
+	font-size: 2em;
+	text-align: center;
+}
+
 #site-footer{
 	/* margin-top: -25em; */
-	height: 25em;
+	height: 15em;
+	display: flex;
+    align-items: center;
+    justify-content: center;
 	background-color: #FF4545;
 	width: 100%;
+	border-radius: 2em 2em 0em 0em ;
 	
 }
 
 .content-wrapper {
-	padding: 20px;
-	min-height: 100em;
+	height: 100%
 
   }
 
+  .Site-content {
+	flex: 1;
+  }
 
 
