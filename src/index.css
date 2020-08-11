@@ -24,7 +24,7 @@ section {
 }
 
 .page-header-box{
-    height: 15em;
+    height: 9em;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -43,13 +43,13 @@ section {
 .footer-text{
 	margin: 0;
 	color: white;
-	font-size: 2em;
+	font-size: 1em;
 	text-align: center;
 }
 
 #site-footer{
 	/* margin-top: -25em; */
-	height: 15em;
+	height: 5em;
 	display: flex;
     align-items: center;
     justify-content: center;
