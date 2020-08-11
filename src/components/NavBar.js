@@ -26,6 +26,7 @@ const brand = {
 export default function NavBar(props) {
   const handleChange = (e) => {
     props.changeGenre(e.target.value);
+    // props.filterShelf(e.target.value)
   };
   const onShowGenreClick = () => {
     console.log("Filter genre!");
@@ -78,14 +79,12 @@ export default function NavBar(props) {
         }
       }
     }
-    console.log(options);
     return options;
   };
 
   const renderOptionTags = (options) => {
-    console.log(options);
     return options.map((option) => {
-      return <option value={option.toLowerCase()}>{option}</option>;
+      return <option value={option}>{option}</option>;
     });
   };
 
@@ -94,7 +93,6 @@ export default function NavBar(props) {
 
   return (
     <div>
-      {console.log(getGenres)}
       <Navbar fixed="top" style={{backgroundColor: "#2d2d2d"}} variant="dark" expand="md">
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">

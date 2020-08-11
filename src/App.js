@@ -7,11 +7,11 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import LibraryPage from "./containers/LibraryPage";
 import HomePage from "./containers/HomePage";
 import Footer from './components/Footer'
-import ShelfHeader from './components/ShelfHeader'
 import HomeHeader from './components/HomeHeader'
 import LibraryHeader from './components/LibraryHeader'
 
 const API = `http://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&`;
+export const FilterContext = React.createContext()
 
 let localAPI = "http://localhost:3000/";
 
@@ -158,6 +158,10 @@ class App extends Component {
     this.setState({ filter: newGenre });
   };
 
+  filterShelf = () => {
+    console.log(this.state.filter)
+  }
+
   //currently we're only editing the shelf movie's poster, but if you expand the controlled form in EditForm.js(and it's state), the code below should scale with those changes.
   handleEditSubmit = (updatedMovie) => {
     console.log(updatedMovie);
@@ -194,7 +198,6 @@ class App extends Component {
     <>
     <Route path='/' exact component={HomeHeader} />
     <Route path='/library' exact component={LibraryHeader} />
-    <Route path='/shelf' exact render={(routerProps) => (<ShelfHeader {...routerProps} myShelf={this.state.myShelf}/>)} />
     </>
   )
 
@@ -202,11 +205,24 @@ class App extends Component {
   render() {
     return (
       <div className="App Site">
-  
         <Router>
+        <FilterContext.Provider value={{currentGenre: this.state.filter}}>
+        <Route
+              exact
+              path="/shelf"
+              render={(routerProps) => (
+                <ShelfPage
+                  {...routerProps}
+                  myShelf={this.state.myShelf}
+                  deleteFromShelf={this.deleteFromShelf}
+                  handleEditSubmit={this.handleEditSubmit}
+                />
+              )}
+            />
+        </FilterContext.Provider>
          {this.Header()}
           <div className="Site-content">
-            <NavBar shelf={this.state.myShelf} />
+            <NavBar shelf={this.state.myShelf} changeGenre={this.changeGenre} />
             <Route exact path="/" component={HomePage} />
             <Route
               exact
@@ -220,18 +236,6 @@ class App extends Component {
                   addToShelf={this.addToShelf}
                   postToMovies={this.postToMovies}
                   fetchDetails={this.fetchDetails}
-                />
-              )}
-            />
-            <Route
-              exact
-              path="/shelf"
-              render={(routerProps) => (
-                <ShelfPage
-                  {...routerProps}
-                  myShelf={this.state.myShelf}
-                  deleteFromShelf={this.deleteFromShelf}
-                  handleEditSubmit={this.handleEditSubmit}
                 />
               )}
             />
