@@ -30,7 +30,7 @@ export default function MovieModal(props) {
         </Modal.Header>
         <Modal.Body style={{backgroundColor: "#212121"}} className="text-center">
           <Image src={props.movie.poster} thumbnail />
-          <h4 style={{color: "white"}}>Year released: {props.movie.year}</h4>
+          <h4 style={{color: "white", marginTop: 20}}>Year released: {props.movie.year}</h4>
           <h4 style={{color: "white"}}>Rated: {props.movie.mpa_rated}</h4>
           <div className="movie-ratings">
             <p style={{color: "white"}}>
