@@ -28,7 +28,7 @@ export default function MovieModal(props) {
         <Modal.Header style={{backgroundColor: "#212121", borderBottom: "3px solid #1E1C1C"}} closeButton>
           <Modal.Title style={{color: "white", width: "100%", textAlign: "center"}}>{props.movie.title}</Modal.Title>
         </Modal.Header>
-        <Modal.Body style={{backgroundColor: "#212121"}}>
+        <Modal.Body style={{backgroundColor: "#212121"}} className="text-center">
           <Image src={props.movie.poster} thumbnail />
           <h4 style={{color: "white"}}>Year released: {props.movie.year}</h4>
           <h4 style={{color: "white"}}>Rated: {props.movie.mpa_rated}</h4>
