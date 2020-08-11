@@ -1,7 +1,7 @@
 ### Flatiron School: Seattle 0420 Cohort
 # MovieShelf: Module 4 Project
 
-![Welcome](README_assets/welcome_mvs.gif)
+![Welcome](README_assets/home_page_mvs.gif)
 
 ### Description: 
 This project was designed to enable a user to create their own movie library by accessing a massive database of movies, and deleting/modifying information as they please. Key features are as follows:
@@ -10,7 +10,7 @@ This project was designed to enable a user to create their own movie library by 
 
 ![Pages](README_assets/pages_mvs.gif)
 
-* Search Movies From OMDB and add them to your Shelf
+* Search movies from OMDB and add them to your shelf
 
 ![Search Movies](README_assets/add_mvs.gif)
 
@@ -22,24 +22,21 @@ This project was designed to enable a user to create their own movie library by 
 
 ![Details](README_assets/details_mvs.gif)
 
-* See the Default Movie Poster
+* Filter movies on your shelf by genre
+
+![Filter Genre](README_assets/filter_mvs.gif)
+
+* See the default movie poster
 
 ![Default](README_assets/default_mvs.gif)
 
-* Edit a Movie's Poster
+* Edit a movie's poster
 
 ![Edit Form](README_assets/edit_mvs.gif)
 
-* Delete a Movie
+* Delete a movie
 
 ![Delete](README_assets/delete_mvs.gif)
-
-* Persist Changes
-
-![Persist](README_assets/persist_mvs.gif)
-
-
-
 
 
 The backend of the application leverages Ruby on Rails API functionality to receive and send AJAX requests in a JSON formate. The interactive frontend is build on ReactJS, HTML, and CSS.
