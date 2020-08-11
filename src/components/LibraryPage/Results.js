@@ -17,7 +17,7 @@ function Results(props) {
               postToMovies={props.postToMovies}
               fetchDetails={props.fetchDetails}
             />
-          ))) : <h2 style={{color: "white"}}>We cannot find that movie.</h2>}
+          ))) : <h2 style={{color: "white"}}>We couldn't find that movie.</h2>}
         </CardGroup>
       </Container>
     </section>
