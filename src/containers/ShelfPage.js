@@ -5,7 +5,7 @@ import CardGroup from "react-bootstrap/CardGroup";
 
 const ShelfPage = (props) => {
   console.log(props.myShelf);
-  return props.myShelf.length ? (
+  return (
     <>
       <Container 
       className="content-wrapper"
@@ -24,19 +24,7 @@ const ShelfPage = (props) => {
       </Container>
          
     </>
-  ) : (
-    <>
-    <Container className="page-header-box">
-      <h1 className="page-header" style={{color: "white" }}>
-        You don't have any movies on your shelf yet
-      </h1>
-    </Container>
-
-    <Container className="content-wrapper">
-
-    </Container>
-    </>
-  );
+  ) 
 };
 
 export default ShelfPage;
