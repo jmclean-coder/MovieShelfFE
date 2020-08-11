@@ -8,7 +8,8 @@ function Results(props) {
     <section className="results">
       <Container>
         <CardGroup>
-          {props.results.map((result) => (
+          {props.results ? (
+          props.results.map((result) => (
             <Result
               result={result}
               key={result.imdbID}
@@ -16,7 +17,7 @@ function Results(props) {
               postToMovies={props.postToMovies}
               fetchDetails={props.fetchDetails}
             />
-          ))}
+          ))) : <h2 style={{color: "white"}}>We cannot find that movie.</h2>}
         </CardGroup>
       </Container>
     </section>
