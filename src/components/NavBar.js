@@ -95,7 +95,7 @@ export default function NavBar(props) {
   return (
     <div>
       {console.log(getGenres)}
-      <Navbar fixed="top" style={{backgroundColor: "#212121"}} variant="dark" expand="md">
+      <Navbar fixed="top" style={{backgroundColor: "#2d2d2d"}} variant="dark" expand="md">
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
