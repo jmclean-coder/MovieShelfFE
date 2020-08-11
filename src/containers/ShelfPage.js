@@ -22,15 +22,12 @@ const ShelfPage = (props) => {
         <CardGroup style={{ marginBottom: "50px" }}>
           {props.myShelf.map(
             (movie) =>  
-              (movie.genre.split(", ").includes(filterContext.currentGenre) ||
-                (filterContext.currentGenre === "all") ? (
                   <MovieCard
                     movie={movie}
                     deleteFromShelf={props.deleteFromShelf}
                     handleEditSubmit={props.handleEditSubmit}
                     key={movie.imdb_id}
                   />
-                ): null)
           )}
         </CardGroup>
       </Container>

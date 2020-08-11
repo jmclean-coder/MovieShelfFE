@@ -24,8 +24,7 @@ const brand = {
 
 export default function NavBar(props) {
   const handleChange = (e) => {
-    props.changeGenre(e.target.value);
-    // props.filterShelf(e.target.value)
+    props.changeFilter(e.target.value);
   };
   // const onShowGenreClick = () => {
   //   console.log("Filter genre!");
@@ -118,7 +117,7 @@ export default function NavBar(props) {
                 <Form.Group controlId="genreSelect">
                   {/* <Form.Label>Genre select</Form.Label> */}
                   <Form.Control as="select">
-                    <option value="all">All</option>
+                    <option value="All">All</option>
                     {renderOptionTags(getOptionsFromShelfGenres())}
                   </Form.Control>
                 </Form.Group>

@@ -23,7 +23,7 @@ class App extends Component {
       input: "",
       results: [],
       myShelf: [],
-      filter: "all",
+      filter: "All",
     };
   }
 
@@ -154,13 +154,19 @@ class App extends Component {
     });
     // console.log(this.state.input)
   };
-  changeGenre = (newGenre) => {
-    this.setState({ filter: newGenre });
+  changeFilter = (term) => {
+    console.log(term)
+    this.setState({ filter: term});
   };
 
-  filterShelf = () => {
-    console.log(this.state.filter)
+filteredShelf = () => {
+  let filter = this.state.filter
+  if(filter === "All"){
+    return this.state.myShelf
+  } else{
+    return this.state.myShelf.filter(movie => movie.genre.includes(filter))
   }
+}
 
   //currently we're only editing the shelf movie's poster, but if you expand the controlled form in EditForm.js(and it's state), the code below should scale with those changes.
   handleEditSubmit = (updatedMovie) => {
@@ -213,7 +219,7 @@ class App extends Component {
               render={(routerProps) => (
                 <ShelfPage
                   {...routerProps}
-                  myShelf={this.state.myShelf}
+                  myShelf={this.filteredShelf()}
                   deleteFromShelf={this.deleteFromShelf}
                   handleEditSubmit={this.handleEditSubmit}
                 />
@@ -222,7 +228,7 @@ class App extends Component {
         </FilterContext.Provider>
          {this.Header()}
           <div className="Site-content">
-            <NavBar shelf={this.state.myShelf} changeGenre={this.changeGenre} />
+            <NavBar shelf={this.state.myShelf} changeFilter={this.changeFilter}/>
             <Route exact path="/" component={HomePage} />
             <Route
               exact
@@ -266,7 +272,7 @@ export default App;
 //   )
 // }
 
-// let changeGenre = (newGenre) => {
+// let changeFilter = (term => {
 //   setState(prevState => {
 //     return { ...prevState, filter:newGenre}
 //   })
