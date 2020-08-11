@@ -194,7 +194,7 @@ class App extends Component {
     <>
     <Route path='/' exact component={HomeHeader} />
     <Route path='/library' exact component={LibraryHeader} />
-    <Route path='/shelf' exact component={ShelfHeader} />
+    <Route path='/shelf' exact render={(routerProps) => (<ShelfHeader {...routerProps} myShelf={this.state.myShelf}/>)} />
     </>
   )
 
