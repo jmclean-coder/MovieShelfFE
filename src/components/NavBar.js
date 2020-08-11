@@ -10,11 +10,17 @@ import {
 import { NavLink } from "react-router-dom";
 
 const link = {
-  width: "100px",
+  width: "120px",
   padding: "12px",
   margin: "0 6px 6px",
-  textDecoration: "none",
-  color: "white",
+
+  color: "#FF4545"
+};
+const brand = {
+  width: "120px",
+  padding: "12px",
+
+  color: "#FF4545"
 };
 
 export default function NavBar(props) {
@@ -89,7 +95,7 @@ export default function NavBar(props) {
   return (
     <div>
       {console.log(getGenres)}
-      <Navbar fixed="top" bg="primary" variant="dark" expand="md">
+      <Navbar fixed="top" style={{backgroundColor: "#2d2d2d"}} variant="dark" expand="md">
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
@@ -119,7 +125,7 @@ export default function NavBar(props) {
                     {renderOptionTags(getOptionsFromShelfGenres())}
                   </Form.Control>
                 </Form.Group>
-                <Button variant="outline-light" onClick={onShowGenreClick}>
+                <Button style={{color: "#FF4545"}} variant="outline-dark" onClick={onShowGenreClick}>
                   Filter Genre
                 </Button>
               </Form>
@@ -130,7 +136,7 @@ export default function NavBar(props) {
                             <Button variant="outline-light" >Search</Button>
                         </Form> */}
         </Navbar.Collapse>
-        <Navbar.Brand>MovieShelf™</Navbar.Brand>
+        <Navbar.Brand style={brand}>MovieShelf™</Navbar.Brand>
       </Navbar>
     </div>
   );

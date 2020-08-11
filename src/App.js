@@ -6,6 +6,10 @@ import ShelfPage from "./containers/ShelfPage";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import LibraryPage from "./containers/LibraryPage";
 import HomePage from "./containers/HomePage";
+import Footer from './components/Footer'
+import ShelfHeader from './components/ShelfHeader'
+import HomeHeader from './components/HomeHeader'
+import LibraryHeader from './components/LibraryHeader'
 
 const API = `http://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&`;
 
@@ -186,12 +190,22 @@ class App extends Component {
       }
     }
   };
+  Header = () => (
+    <>
+    <Route path='/' exact component={HomeHeader} />
+    <Route path='/library' exact component={LibraryHeader} />
+    <Route path='/shelf' exact render={(routerProps) => (<ShelfHeader {...routerProps} myShelf={this.state.myShelf}/>)} />
+    </>
+  )
+
 
   render() {
     return (
-      <div className="App">
+      <div className="App Site">
+  
         <Router>
-          <div>
+         {this.Header()}
+          <div className="Site-content">
             <NavBar shelf={this.state.myShelf} />
             <Route exact path="/" component={HomePage} />
             <Route
@@ -223,6 +237,7 @@ class App extends Component {
             />
           </div>
         </Router>
+        <Footer />
       </div>
     );
   }

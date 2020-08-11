@@ -1,25 +1,17 @@
-body {
-	font-family: 'Times New Roman', Times, serif;
-	background-color: black;
-}
-
-header {
-	padding: 50px 15px 0px;
-}
-
-header h1 {
-	color: black;
-	font-size: 56px;
-	font-weight: 550;
-	text-align: center;
+body #root {
+	font-family: 'Montserrat', sans-serif;
+	padding-top: 4.4em;
 }
 
 
-main {
-	width: 100%;
-	max-width: 1600px;
-	margin: 0 auto;
+.App{
+	background-color: #1E1C1C;
+	display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 }
+
+
 
 section {
 	padding: 15px;
@@ -27,4 +19,53 @@ section {
 
 .card {
 	max-width: 300px ;
+	box-shadow: 0 -2px 50px 0 rgba(0, 0, 0, 1);
+
 }
+
+.page-header-box{
+    height: 15em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+	background-color: #FF4545;
+	border-radius: 0em 0em 2em 2em;
+}
+
+.page-header{
+	margin: 0;
+	color: white;
+	font-size: 2em;
+	text-align: center;
+
+}
+
+.footer-text{
+	margin: 0;
+	color: white;
+	font-size: 2em;
+	text-align: center;
+}
+
+#site-footer{
+	/* margin-top: -25em; */
+	height: 15em;
+	display: flex;
+    align-items: center;
+    justify-content: center;
+	background-color: #FF4545;
+	width: 100%;
+	border-radius: 2em 2em 0em 0em ;
+	
+}
+
+.content-wrapper {
+	height: 100%
+
+  }
+
+  .Site-content {
+	flex: 1;
+  }
+
+
