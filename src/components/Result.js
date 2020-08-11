@@ -16,7 +16,7 @@ function Result(props) {
   return (
     <div className="mx-auto">
       <Container>
-        <Card style={{marginTop: 30, backgroundColor: "#212121"}}>
+        <Card className="movie-card">
           <Card.Body>
             <Card.Title as="h3" className="text-center" style={{color: "white"}}>
               {props.result.Title}
