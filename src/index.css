@@ -74,5 +74,8 @@ section {
     background-color: transparent;
 }
 
-
-
+#filter-genre {
+	color: rgb(255, 69, 69);
+	padding-top: 12px;
+	padding-left: 20px;
+}

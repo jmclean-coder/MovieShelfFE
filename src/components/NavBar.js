@@ -123,9 +123,7 @@ export default function NavBar(props) {
                     {renderOptionTags(getOptionsFromShelfGenres())}
                   </Form.Control>
                 </Form.Group>
-                <Button style={{color: "#FF4545"}} variant="outline-dark" onClick={onShowGenreClick}>
-                  Filter Genre
-                </Button>
+                  <p id="filter-genre" >Filter Genre</p> 
               </Form>
             ) : null}
           </Nav>
