@@ -87,7 +87,7 @@ export default function NavBar(props) {
   };
 
   return (
-    <div>
+    <>
       <Navbar
         fixed="top"
         style={{ backgroundColor: "#2d2d2d" }}
@@ -132,6 +132,6 @@ export default function NavBar(props) {
         </Navbar.Collapse>
         <Navbar.Brand style={brand}>MovieShelf™</Navbar.Brand>
       </Navbar>
-    </div>
+    </>
   );
 }

@@ -7,9 +7,9 @@ function LibraryPage(props) {
   return (
     <>
       <Container style={{minHeight: "100em", marginTop: "105px"}}>
-      <header>
+      <div className="text-center">
         <h1 style={{color: "white"}}>Movie Library</h1>
-      </header>
+      </div>
         <Search handleInput={props.handleInput} search={props.search} />
         <Results
           results={props.results}

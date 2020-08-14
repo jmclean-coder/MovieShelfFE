@@ -1,10 +1,11 @@
 import React from "react";
-
+import { Container } from "react-bootstrap";
 
 function HomePage() {
   return (
    
-      <div className="image-blur">
+      <div  style={{minHeight: "100em", marginTop: "105px"}}>
+        <div className="image-blur" />
       </div>
    
   );
