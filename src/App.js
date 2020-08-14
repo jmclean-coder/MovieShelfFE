@@ -9,6 +9,7 @@ import HomePage from "./containers/HomePage";
 import Footer from './components/Footer'
 import HomeHeader from './components/HomeHeader'
 import LibraryHeader from './components/LibraryHeader'
+import ShelfHeader from './components/ShelfHeader'
 
 const API = `http://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&`;
 export const FilterContext = React.createContext()
@@ -204,6 +205,7 @@ filteredShelf = () => {
     <>
     <Route path='/' exact component={HomeHeader} />
     <Route path='/library' exact component={LibraryHeader} />
+    <Route path='/shelf' eaxct render={() => <ShelfHeader myShelf={this.filteredShelf()}/>}/>
     </>
   )
 
@@ -212,7 +214,7 @@ filteredShelf = () => {
     return (
       <div className="App Site">
         <Router>
-        <FilterContext.Provider value={{currentGenre: this.state.filter}}>
+          {this.Header()}
         <Route
               exact
               path="/shelf"
@@ -225,9 +227,7 @@ filteredShelf = () => {
                 />
               )}
             />
-        </FilterContext.Provider>
-         {this.Header()}
-          <div className="Site-content">
+          <>
             <NavBar shelf={this.state.myShelf} changeFilter={this.changeFilter}/>
             <Route exact path="/" component={HomePage} />
             <Route
@@ -245,7 +245,7 @@ filteredShelf = () => {
                 />
               )}
             />
-          </div>
+          </>
         </Router>
         <Footer />
       </div>
