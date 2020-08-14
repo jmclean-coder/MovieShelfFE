@@ -1,6 +1,5 @@
 body #root {
 	font-family: 'Montserrat', sans-serif;
-	padding-top: 4.4em;
 }
 
 
@@ -25,12 +24,16 @@ section {
 }
 
 .page-header-box{
-    height: 9em;
+    height: 10em;
     display: flex;
     align-items: center;
     justify-content: center;
-	background-color: #FF4545;
-	border-radius: 0em 0em 2em 2em;
+    background-color: #FF4545;
+    border-radius: 0em 0em 2em 2em;
+    position: sticky;
+    top: 4.4em;
+    z-index: 2;
+    margin-bottom: 3em;
 }
 
 .page-header{
@@ -48,16 +51,17 @@ section {
 	text-align: center;
 }
 
-#site-footer{
-	/* margin-top: -25em; */
-	height: 5em;
-	display: flex;
+#site-footer {
+    position: sticky;
+    bottom: 0%;
+    height: 5em;
+    flex-shrink: 0;
+    display: flex;
     align-items: center;
     justify-content: center;
-	background-color: #FF4545;
-	width: 100%;
-	border-radius: 2em 2em 0em 0em ;
-	
+    background-color: #FF4545;
+    width: 100%;
+    border-radius: 2em 2em 0em 0em;
 }
 .image-blur{
 	margin: 0 auto;
