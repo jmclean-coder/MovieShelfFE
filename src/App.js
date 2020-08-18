@@ -11,7 +11,7 @@ import HomeHeader from "./components/HomeHeader";
 import LibraryHeader from "./components/LibraryHeader";
 import ShelfHeader from "./components/ShelfHeader";
 
-const API = `http://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&`;
+const API = `https://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&`;
 let railsAPI = "https://movieshelf-app-api.herokuapp.com/";
 
 class App extends Component {
