@@ -6,7 +6,7 @@ import Results from "../components/LibraryPage/Results";
 function LibraryPage(props) {
   return (
     <>
-      <Container style={{minHeight: "100em", marginTop: "105px"}}>
+      <Container style={{minHeight: "88.5em", marginTop: "105px"}}>
       <div className="text-center">
         <h1 style={{color: "white"}}>Movie Library</h1>
       </div>
