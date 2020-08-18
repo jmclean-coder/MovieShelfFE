@@ -9,7 +9,7 @@ class Search extends Component {
         <section className="search-wrap">
           <Form.Group>
             <Form.Control
-              onChange={this.props.handleInput}
+              onChange={this.props.handleSearchInput}
               onKeyPress={this.props.search}
               size="lg"
               type="text"
