@@ -1,11 +1,10 @@
-import React, { useContext } from "react";
-import { FilterContext } from "../App";
+import React from "react";
 import { Container } from "react-bootstrap";
 import MovieCard from "../components/MovieCard";
 import CardGroup from "react-bootstrap/CardGroup";
 
 const ShelfPage = (props) => {
-  const filterContext = useContext(FilterContext);
+ 
   return (
     <>
       <Container className="content-wrapper">
