@@ -1,95 +1,90 @@
 body #root {
-	font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
-
-.App{
-	background-color: #1E1C1C;
-	display: flex;
+.App {
+  background-color: #1e1c1c;
+  display: flex;
   min-height: 100vh;
   flex-direction: column;
 }
 
-
-
 section {
-	padding: 15px;
+  padding: 15px;
 }
 
 .card.movie-card {
-	max-width: 300px ;
-	box-shadow: 0 -2px 30px 0 rgba(0, 0, 0, 1);
-	background-color: #2d2d2d;
-	margin-bottom: 20px;
+  max-width: 300px;
+  box-shadow: 0 -2px 30px 0 rgba(0, 0, 0, 1);
+  background-color: #2d2d2d;
+  margin-bottom: 20px;
 }
 
-.page-header-box{
-    height: 10em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #FF4545;
-    border-radius: 0em 0em 2em 2em;
-    position: sticky;
-    top: 4.4em;
-    z-index: 2;
-    margin-bottom: 3em;
+.page-header-box {
+  height: 10em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ff4545;
+  border-radius: 0em 0em 2em 2em;
+  position: sticky;
+  top: 4.4em;
+  z-index: 2;
+  margin-bottom: 3em;
 }
 
-.page-header{
-	margin: 0;
-	color: white;
-	font-size: 2em;
-	text-align: center;
-
+.page-header {
+  margin: 0;
+  color: white;
+  font-size: 2em;
+  text-align: center;
 }
 
-.footer-text{
-	margin: 0;
-	color: white;
-	font-size: 1em;
-	text-align: center;
+.footer-text {
+  margin: 0;
+  color: white;
+  font-size: 1em;
+  text-align: center;
 }
 
 #site-footer {
-    position: sticky;
-    bottom: 0%;
-    height: 5em;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #FF4545;
-    width: 100%;
-    border-radius: 2em 2em 0em 0em;
+  position: sticky;
+  bottom: 0%;
+  height: 5em;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ff4545;
+  width: 100%;
+  border-radius: 2em 2em 0em 0em;
 }
-.image-blur{
-	margin: 0 auto;
-    margin-top: 0%;
-    background-image: url(https://techcrunch.com/wp-content/uploads/2018/09/GettyImages-104187321.jpg);
-    background-size: cover;
-    box-shadow: 0 0 30px 30px #1E1C1C inset;
-    width: 71%;
-    height: 777px;
+.image-blur {
+  margin: 0 auto;
+  margin-top: 0%;
+  background-image: url(https://techcrunch.com/wp-content/uploads/2018/09/GettyImages-104187321.jpg);
+  background-size: cover;
+  box-shadow: 0 0 30px 30px #1e1c1c inset;
+  width: 71%;
+  height: 777px;
 }
 
 .content-wrapper {
-	height: 100%
+  height: 100%;
+}
 
-  }
+.Site-content {
+  flex: 1;
+}
 
-  .Site-content {
-	flex: 1;
-  }
-
-  a {
-    color: white;
-    text-decoration: underline;
-    background-color: transparent;
+a {
+  color: white;
+  text-decoration: underline;
+  background-color: transparent;
 }
 
 #filter-genre {
-	color: rgb(255, 69, 69);
-	padding-top: 12px;
-	padding-left: 20px;
+  color: rgb(255, 69, 69);
+  padding-top: 12px;
+  padding-left: 20px;
 }

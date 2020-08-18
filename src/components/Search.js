@@ -1,20 +1,25 @@
-import React, { Component } from 'react'
-import Form from 'react-bootstrap/Form'
-import Container from 'react-bootstrap/Container'
-
+import React, { Component } from "react";
+import Form from "react-bootstrap/Form";
+import Container from "react-bootstrap/Container";
 
 class Search extends Component {
-    render() {
-        return (
-            <Container>
-            <section className="search-wrap">
-    <Form.Group>
-        <Form.Control onChange={this.props.handleInput} onKeyPress={this.props.search} size="lg" type="text" placeholder="Search for a Movie Title"/>
-    </Form.Group>
-    </section>
-    </Container>
-        )
-    }
+  render() {
+    return (
+      <Container>
+        <section className="search-wrap">
+          <Form.Group>
+            <Form.Control
+              onChange={this.props.handleInput}
+              onKeyPress={this.props.search}
+              size="lg"
+              type="text"
+              placeholder="Search for a Movie Title"
+            />
+          </Form.Group>
+        </section>
+      </Container>
+    );
+  }
 }
 
-export default Search
+export default Search;

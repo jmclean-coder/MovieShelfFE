@@ -8,20 +8,16 @@ const ShelfPage = (props) => {
   const filterContext = useContext(FilterContext);
   return (
     <>
-      <Container
-        className="content-wrapper"
-        // style={{ marginTop: "105px" }}
-      >
+      <Container className="content-wrapper">
         <CardGroup style={{ marginBottom: "50px" }}>
-          {props.myShelf.map(
-            (movie) =>  
-                  <MovieCard
-                    movie={movie}
-                    deleteFromShelf={props.deleteFromShelf}
-                    handleEditSubmit={props.handleEditSubmit}
-                    key={movie.imdb_id}
-                  />
-          )}
+          {props.myShelf.map((movie) => (
+            <MovieCard
+              movie={movie}
+              deleteFromShelf={props.deleteFromShelf}
+              handleEditSubmit={props.handleEditSubmit}
+              key={movie.imdb_id}
+            />
+          ))}
         </CardGroup>
       </Container>
     </>

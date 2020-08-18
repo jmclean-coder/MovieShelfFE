@@ -1,4 +1,4 @@
-import React, { Component} from "react";
+import React, { Component } from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import EditForm from "./EditForm";
@@ -39,9 +39,9 @@ class MovieCard extends Component {
 
   render() {
     return (
-        <div className="mx-auto">
-          <Container>
-          <Card className="movie-card" style={{marginTop: 50}}>
+      <div className="mx-auto">
+        <Container>
+          <Card className="movie-card" style={{ marginTop: 50 }}>
             <Card.Body>
               <Card.Title
                 as="h3"

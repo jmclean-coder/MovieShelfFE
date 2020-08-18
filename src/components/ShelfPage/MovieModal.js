@@ -1,7 +1,5 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import { Button, Modal, Image } from "react-bootstrap";
-
-// let API = `http://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&`;
 
 export default function MovieModal(props) {
   const [show, setShow] = useState(false);
@@ -11,7 +9,11 @@ export default function MovieModal(props) {
 
   const renderRatingInfo = () => {
     return props.movie.ratings.map((movieRating) => (
-      <p style={{ color: "white" }} className="movie-rating" key={`rating_${movieRating.Source}`}>
+      <p
+        style={{ color: "white" }}
+        className="movie-rating"
+        key={`rating_${movieRating.Source}`}
+      >
         {movieRating.Source}: {movieRating.Value}
       </p>
     ));
