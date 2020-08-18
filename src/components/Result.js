@@ -9,14 +9,12 @@ const handleImageError = (e) => {
 
 function Result(props) {
   const handleClick = () => {
-    console.log(props.result);
     props.fetchDetails(props.result).then((detailedMovie) => {
       console.log(detailedMovie);
       props.postToMovies(detailedMovie);
     });
   };
 
-  // console.log(props.result)
   return (
     <div className="mx-auto">
       <Container>

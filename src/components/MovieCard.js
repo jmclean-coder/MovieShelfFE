@@ -28,11 +28,11 @@ class MovieCard extends Component {
     console.log("hi from show form");
     if (this.state.toggleForm === false) {
       this.setState({
-        toggleForm: true,
+        toggleForm: true
       });
     } else {
       this.setState({
-        toggleForm: false,
+        toggleForm: false
       });
     }
   };

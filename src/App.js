@@ -12,7 +12,7 @@ import LibraryHeader from "./components/LibraryHeader";
 import ShelfHeader from "./components/ShelfHeader";
 
 const API = `https://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&`;
-let railsAPI = "https://movieshelf-app-api.herokuapp.com/";
+const railsAPI = "https://movieshelf-app-api.herokuapp.com/";
 
 class App extends Component {
   constructor(props) {
@@ -61,7 +61,6 @@ class App extends Component {
 
   //after the detailed movie is recieved, post selected data to backend
   postToMovies = (movie) => {
-    console.log(movie);
     fetch(`${railsAPI}movies`, {
       method: "POST",
       headers: {
@@ -109,7 +108,6 @@ class App extends Component {
 
   //Get request to backend to determine which specfic movie_shelf join is responsible for the deleted movie
   findMovieShelf = (movieId) => {
-    console.log(movieId);
     fetch(`${railsAPI}movie_shelves`)
       .then((res) => res.json())
       .then((movieShelves) =>
@@ -155,7 +153,6 @@ class App extends Component {
 
   //change filter term in state and filter shelfed movies based on genre
   changeFilter = (term) => {
-    console.log(term);
     this.setState({ filter: term });
   };
 
@@ -201,7 +198,16 @@ class App extends Component {
   Header = () => (
     <>
       <Route path="/" exact component={HomeHeader} />
-      <Route path="/library" exact component={LibraryHeader} />
+      <Route
+        path="/library"
+        eaxct
+        render={() => (
+          <LibraryHeader
+            handleSearchInput={this.handleSearchInput}
+            search={this.search}
+          />
+        )}
+      />
       <Route
         path="/shelf"
         eaxct

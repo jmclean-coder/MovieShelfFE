@@ -9,15 +9,18 @@ function Results(props) {
       <Container>
         <CardGroup>
           {props.results ? (
-          props.results.map((result) => (
-            <Result
-              result={result}
-              key={result.imdbID}
-              addToShelf={props.addToShelf}
-              postToMovies={props.postToMovies}
-              fetchDetails={props.fetchDetails}
-            />
-          ))) : <h2 style={{color: "white"}}>We couldn't find that movie.</h2>}
+            props.results.map((result) => (
+              <Result
+                result={result}
+                key={result.imdbID}
+                addToShelf={props.addToShelf}
+                postToMovies={props.postToMovies}
+                fetchDetails={props.fetchDetails}
+              />
+            ))
+          ) : (
+            <h2 style={{ color: "white" }}>We couldn't find that movie.</h2>
+          )}
         </CardGroup>
       </Container>
     </section>

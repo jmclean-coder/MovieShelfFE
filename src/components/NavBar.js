@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  Nav,
-  Navbar,
-  // NavDropdown,
-  Form,
-  // FormControl,
-} from "react-bootstrap";
+import { Nav, Navbar, Form } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 
 const link = {

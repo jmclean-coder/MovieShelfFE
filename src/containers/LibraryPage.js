@@ -1,16 +1,11 @@
 import React from "react";
 import { Container } from "react-bootstrap";
-import Search from "../components/Search";
 import Results from "../components/LibraryPage/Results";
 
 function LibraryPage(props) {
   return (
     <>
-      <Container style={{minHeight: "88.5em", marginTop: "105px"}}>
-      <div className="text-center">
-        <h1 style={{color: "white"}}>Movie Library</h1>
-      </div>
-        <Search handleSearchInput={props.handleSearchInput} search={props.search} />
+      <Container style={{ minHeight: "88.5em", marginTop: "105px" }}>
         <Results
           results={props.results}
           addToShelf={props.addToShelf}

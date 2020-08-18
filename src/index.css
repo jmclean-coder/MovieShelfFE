@@ -68,8 +68,13 @@ section {
   height: 95em;
 }
 
+.search-wrap {
+  padding-left: 2em;
+  width: 25em;
+}
+
 .content-wrapper {
-  min-height: 95.1em
+  min-height: 95.1em;
 }
 
 .Site-content {
