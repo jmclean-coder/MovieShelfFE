@@ -25,7 +25,6 @@ class MovieCard extends Component {
   };
 
   showForm = () => {
-    console.log("hi from show form");
     if (this.state.toggleForm === false) {
       this.setState({
         toggleForm: true

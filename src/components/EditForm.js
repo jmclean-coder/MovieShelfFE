@@ -18,8 +18,6 @@ class EditForm extends Component {
     e.preventDefault();
     //if edit form state is expanded to include all attributes of a movie, and the keys in state EXACTLY MATCH the keys in movie obj, can change below to either send or overwrite the entire movie, or overwrite specific attributes in relation to the form.
     let updatedMovie = { ...this.props.movie, poster: this.state.poster };
-    console.log(updatedMovie);
-
     this.props.handleEditSubmit(updatedMovie);
   };
 

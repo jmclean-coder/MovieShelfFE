@@ -10,7 +10,6 @@ const handleImageError = (e) => {
 function Result(props) {
   const handleClick = () => {
     props.fetchDetails(props.result).then((detailedMovie) => {
-      console.log(detailedMovie);
       props.postToMovies(detailedMovie);
     });
   };

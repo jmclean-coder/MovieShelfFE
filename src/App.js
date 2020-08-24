@@ -31,7 +31,6 @@ class App extends Component {
   };
 
   handleFetch = () => {
-    console.log("hi");
     fetch(`${railsAPI}shelves/1`)
       .then((res) => res.json())
       .then((data) => {
@@ -55,7 +54,6 @@ class App extends Component {
   };
   //after add to shelf is clicked, fetch the detailed movie resource with the movies imdb_id
   fetchDetails = (movie) => {
-    console.log(movie);
     return fetch(`${API}i=${movie.imdbID}`).then((res) => res.json());
   };
 
@@ -128,7 +126,7 @@ class App extends Component {
       },
     })
       .then((res) => res.json())
-      .then((data) => console.log(data));
+      // .then((data) => console.log(data));
   };
 
   //take in user's search string and query the movie API for results that match that parameter
