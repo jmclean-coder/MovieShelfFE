@@ -55,7 +55,7 @@ The backend of the application leverages Ruby on Rails API functionality to rece
 * React Router
 
 ### Server Dependencies
-Refer to the backend repo at https://github.com/jmclean-coder/MovieShelfBE for instructions to set up the backend server and PostGreSQL
+Refer to the [Backend Repo](https://github.com/jmclean-coder/MovieShelfBE) for instructions to set up the backend server and PostGreSQL
 
 ### Installation:
 
